@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5sekepb63mku"]
+
+[ext_resource type="Texture2D" uid="uid://lg0dk8lf2dn4" path="res://assets/circle0.png" id="1_w6kfm"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dtcbc"]
+radius = 8.0
+height = 36.0
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1, 2.25)
+texture = ExtResource("1_w6kfm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_dtcbc")
