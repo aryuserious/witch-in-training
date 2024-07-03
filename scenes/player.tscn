@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5sekepb63mku"]
+[gd_scene load_steps=5 format=3 uid="uid://c5sekepb63mku"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_u0nfh"]
 [ext_resource type="Texture2D" uid="uid://lg0dk8lf2dn4" path="res://assets/circle0.png" id="1_w6kfm"]
@@ -6,6 +6,9 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dtcbc"]
 radius = 8.0
 height = 36.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7ixw2"]
+radius = 30.0167
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_u0nfh")
@@ -16,3 +19,11 @@ texture = ExtResource("1_w6kfm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_dtcbc")
+
+[node name="Detection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
+shape = SubResource("CircleShape2D_7ixw2")
+
+[connection signal="area_entered" from="Detection" to="." method="_on_detection_area_entered"]
+[connection signal="area_exited" from="Detection" to="." method="_on_detection_area_exited"]
