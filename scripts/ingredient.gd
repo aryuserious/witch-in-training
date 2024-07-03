@@ -2,8 +2,8 @@ class_name Ingredient
 
 extends Area2D
 
-
-# members
+enum type { GINGER, MINT, THORNED_ROSE, HONEY, LEECH, SALT, CAT_HAIR }
+@export var ingredient_type : type
 
 
 func _ready():
