@@ -2,7 +2,7 @@ class_name Ingredient
 
 extends Area2D
 
-enum type { GINGER, MINT, THORNED_ROSE, HONEY, LEECH, SALT, CAT_HAIR }
+enum type { GINGER_ROOT, PEPPERMINT_CANDY, THORNED_ROSE, HONEY, LEECH, SALT, CAT_HAIR }
 @export var ingredient_type : type
 
 
