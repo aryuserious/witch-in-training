@@ -17,7 +17,7 @@ scale = Vector2(0.8, 0.8)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_a7wxe")
 region_enabled = true
-region_rect = Rect2(5.95317, 15.1818, 60.1552, 59.1299)
+region_rect = Rect2(222.146, 21.0538, 53.6239, 49.7936)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_62y6x")
