@@ -1,12 +1,19 @@
 [gd_scene load_steps=3 format=3 uid="uid://2571m6godsxt"]
 
 [ext_resource type="PackedScene" uid="uid://c5sekepb63mku" path="res://scenes/player.tscn" id="1_iw33g"]
-[ext_resource type="PackedScene" uid="uid://7uagnpdsdv57" path="res://scenes/peppermint_candy_ingredient.tscn" id="2_ko811"]
+[ext_resource type="PackedScene" uid="uid://7uagnpdsdv57" path="res://scenes/ingredient.tscn" id="2_ko811"]
 
 [node name="Level1" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_iw33g")]
 position = Vector2(545, 292)
 
-[node name="PeppermintCandyIngredient" parent="." instance=ExtResource("2_ko811")]
-position = Vector2(600, 374)
+[node name="Ingredient" parent="." instance=ExtResource("2_ko811")]
+position = Vector2(267.666, 199.471)
+
+[node name="Ingredient2" parent="." instance=ExtResource("2_ko811")]
+position = Vector2(85, 417)
+ingredient_type = 1
+
+[node name="Ingredient3" parent="." instance=ExtResource("2_ko811")]
+position = Vector2(476, 422)
