@@ -9,4 +9,4 @@
 position = Vector2(545, 292)
 
 [node name="PeppermintCandyIngredient" parent="." instance=ExtResource("2_ko811")]
-position = Vector2(616, 387)
+position = Vector2(600, 374)

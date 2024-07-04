@@ -1,29 +1,35 @@
 [gd_scene load_steps=5 format=3 uid="uid://c5sekepb63mku"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_u0nfh"]
-[ext_resource type="Texture2D" uid="uid://lg0dk8lf2dn4" path="res://assets/circle0.png" id="1_w6kfm"]
+[ext_resource type="Texture2D" uid="uid://di5lr3dycx46x" path="res://assets/player.png" id="2_gck5r"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dtcbc"]
-radius = 8.0
-height = 36.0
+radius = 21.0
+height = 100.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7ixw2"]
-radius = 30.0167
+radius = 67.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_u0nfh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1, 2.25)
-texture = ExtResource("1_w6kfm")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_gck5r")
+region_enabled = true
+region_rect = Rect2(921.162, 212.275, 112.697, 215.12)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_dtcbc")
 
 [node name="Detection" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
 shape = SubResource("CircleShape2D_7ixw2")
+
+[node name="HandPosition" type="Node2D" parent="."]
+position = Vector2(-14, 23)
 
 [connection signal="area_entered" from="Detection" to="." method="_on_detection_area_entered"]
 [connection signal="area_exited" from="Detection" to="." method="_on_detection_area_exited"]

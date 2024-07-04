@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://7uagnpdsdv57"]
+[gd_scene load_steps=4 format=3 uid="uid://7uagnpdsdv57"]
 
 [ext_resource type="Script" path="res://scripts/ingredient.gd" id="1_vuxb1"]
-[ext_resource type="Texture2D" uid="uid://lg0dk8lf2dn4" path="res://assets/circle0.png" id="2_p2dkn"]
-[ext_resource type="Texture2D" uid="uid://dj4ygkw1wgugc" path="res://assets/Block0.png" id="3_o7g74"]
+[ext_resource type="Texture2D" uid="uid://d3v77sveuc4qg" path="res://assets/ingredients.png" id="2_a7wxe"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_62y6x"]
 radius = 12.0
@@ -15,61 +14,10 @@ ingredient_type = 1
 scale = Vector2(0.8, 0.8)
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprites"]
-texture = ExtResource("2_p2dkn")
-
-[node name="RedLine" type="Sprite2D" parent="Sprites"]
-modulate = Color(1, 0.31, 0.31, 1)
-position = Vector2(0, -6.5)
-scale = Vector2(0.125, 0.1875)
-texture = ExtResource("3_o7g74")
-
-[node name="RedLine4" type="Sprite2D" parent="Sprites"]
-modulate = Color(1, 0.31, 0.31, 1)
-position = Vector2(0, 6.5)
-scale = Vector2(0.125, 0.1875)
-texture = ExtResource("3_o7g74")
-
-[node name="RedLine2" type="Sprite2D" parent="Sprites"]
-modulate = Color(1, 0.31, 0.31, 1)
-position = Vector2(6.58286, -1.82336e-08)
-rotation = 1.5708
-scale = Vector2(0.125, 0.166643)
-texture = ExtResource("3_o7g74")
-
-[node name="RedLine3" type="Sprite2D" parent="Sprites"]
-modulate = Color(1, 0.31, 0.31, 1)
-position = Vector2(-6.20744, -9.574e-07)
-rotation = 1.5708
-scale = Vector2(0.125, 0.213571)
-texture = ExtResource("3_o7g74")
-
-[node name="RedLine5" type="Sprite2D" parent="Sprites"]
-modulate = Color(1, 0.31, 0.31, 1)
-position = Vector2(-5, 5)
-rotation = 0.802253
-scale = Vector2(0.125, 0.213571)
-texture = ExtResource("3_o7g74")
-
-[node name="RedLine6" type="Sprite2D" parent="Sprites"]
-modulate = Color(1, 0.31, 0.31, 1)
-position = Vector2(5, -4)
-rotation = 0.802253
-scale = Vector2(0.125, 0.213571)
-texture = ExtResource("3_o7g74")
-
-[node name="RedLine7" type="Sprite2D" parent="Sprites"]
-modulate = Color(1, 0.31, 0.31, 1)
-position = Vector2(-5, -4)
-rotation = 2.16871
-scale = Vector2(0.125, 0.213571)
-texture = ExtResource("3_o7g74")
-
-[node name="RedLine8" type="Sprite2D" parent="Sprites"]
-modulate = Color(1, 0.31, 0.31, 1)
-position = Vector2(4, 5)
-rotation = 2.16871
-scale = Vector2(0.125, 0.213571)
-texture = ExtResource("3_o7g74")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_a7wxe")
+region_enabled = true
+region_rect = Rect2(5.95317, 15.1818, 60.1552, 59.1299)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_62y6x")
