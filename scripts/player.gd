@@ -16,8 +16,12 @@ func _physics_process(_delta):
     # it will return false if null, else it will return true
     # if ingredient in range: says true as long as it is not null, but it is NOT a bool, it is
     # an ingredient
-    if ingredient_in_range and !current_ingredient and Input.is_action_just_pressed("pickup"):
+    if ingredient_in_range and not current_ingredient and Input.is_action_just_pressed("pickup"):
         pickup_ingredient()
+    else:
+        if ingredient_in_range and current_ingredient and Input.is_action_just_pressed("pickup"):
+            drop_ingredient()
+            pickup_ingredient()
     
     if current_ingredient and Input.is_action_just_pressed("drop"):
         drop_ingredient()
@@ -50,8 +54,6 @@ func drop_ingredient():
 func _on_detection_area_entered(area:Area2D):
     if area is Ingredient:
         ingredient_in_range = area # again, this is WHICH ingredient is in range
-
-        print("ingredient detected")
 
 
 func _on_detection_area_exited(area:Area2D):
