@@ -11,6 +11,8 @@ height = 100.0
 radius = 67.0
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 9
 script = ExtResource("1_u0nfh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -24,6 +26,8 @@ position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_dtcbc")
 
 [node name="Detection" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
 shape = SubResource("CircleShape2D_7ixw2")

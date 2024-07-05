@@ -10,17 +10,21 @@ height = 108.0
 radius = 43.1741
 
 [node name="Cauldron" type="StaticBody2D"]
+scale = Vector2(0.5, 0.5)
+collision_layer = 8
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 position = Vector2(0, -46)
 color = Color(0.133, 0.1368, 0.19, 1)
-polygon = PackedVector2Array(-80, -23, 73, -23, 72, -12, 63, -9, 55, 46, 21, 60, -24, 60, -57, 48, -62, -9, -79, -11)
+polygon = PackedVector2Array(-80, -23, 73, -23, 72, -12, 63, -9, 55, 46, 26, 60, -24, 60, -57, 48, -62, -9, -79, -11)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_jfit8")
 
 [node name="Detection" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Detection"]
 modulate = Color(1, 0.546667, 0.2, 1)
