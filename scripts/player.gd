@@ -12,16 +12,8 @@ var current_ingredient : Ingredient # which ingredient is picked up
 func _physics_process(_delta):
     move()
 
-    # remember: when using ingredient_in_range or current_ingredient in an if statement
-    # it will return false if null, else it will return true
-    # if ingredient in range: says true as long as it is not null, but it is NOT a bool, it is
-    # an ingredient
     if ingredients_in_range.size() > 0 and not current_ingredient and Input.is_action_just_pressed("pickup"):
         pickup_ingredient()
-    else:
-        if ingredients_in_range.size() > 0 and current_ingredient and Input.is_action_just_pressed("pickup"):
-            drop_ingredient()
-            pickup_ingredient()
     
     if current_ingredient and Input.is_action_just_pressed("drop"):
         drop_ingredient()
@@ -62,7 +54,6 @@ func _on_detection_area_exited(area:Area2D):
 
 
 func nearest_ingredient() -> Ingredient:
-    # var prev_ingr : Ingredient
     var first_loop = true
     var nearest_ingr
 
@@ -71,8 +62,8 @@ func nearest_ingredient() -> Ingredient:
             first_loop = false
             nearest_ingr = ingredient
         else:
-            var nearest_ingr_distance = nearest_ingr.position - position
-            var distance = ingredient.position - position
+            var nearest_ingr_distance = abs(nearest_ingr.position - position)
+            var distance = abs(ingredient.position - position)
 
             if nearest_ingr_distance > distance: # current ingr is the new nearest
                 nearest_ingr = ingredient

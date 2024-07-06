@@ -26,3 +26,20 @@ func set_sprite_texture():
         type.PEPPERMINT_CANDY:
             if has_node("Sprite"):
                 $Sprite.region_rect = ingredient_regions["peppermint candy"]
+
+
+static func ingredient_type_as_string(ingredient : Ingredient) -> String:
+    if ingredient:
+        match ingredient.ingredient_type:
+            Ingredient.type.GINGER_ROOT:
+                return "Ginger Root"
+            Ingredient.type.PEPPERMINT_CANDY:
+                return "Peppermint Candy"
+            Ingredient.type.THORNED_ROSE:
+                return "Thorned Rose"
+            Ingredient.type.SALT:
+                return "Salt"
+            _:
+                return "???"
+    else:
+        return "None"
