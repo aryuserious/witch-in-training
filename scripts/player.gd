@@ -5,7 +5,7 @@ extends CharacterBody2D
 
 var speed = 300
 
-var ingredient_in_range : Ingredient # which ingredient is in range
+var ingredients_in_range : Array[Ingredient] # which ingredient is in range
 var current_ingredient : Ingredient # which ingredient is picked up
 
 
@@ -16,10 +16,10 @@ func _physics_process(_delta):
     # it will return false if null, else it will return true
     # if ingredient in range: says true as long as it is not null, but it is NOT a bool, it is
     # an ingredient
-    if ingredient_in_range and not current_ingredient and Input.is_action_just_pressed("pickup"):
+    if ingredients_in_range.size() > 0 and not current_ingredient and Input.is_action_just_pressed("pickup"):
         pickup_ingredient()
     else:
-        if ingredient_in_range and current_ingredient and Input.is_action_just_pressed("pickup"):
+        if ingredients_in_range.size() > 0 and current_ingredient and Input.is_action_just_pressed("pickup"):
             drop_ingredient()
             pickup_ingredient()
     
@@ -38,7 +38,7 @@ func move():
 
 
 func pickup_ingredient():
-    current_ingredient = ingredient_in_range
+    current_ingredient = nearest_ingredient()
     # ingredient becomes smaller to look like its being held
     current_ingredient.scale = Vector2(0.75, 0.75)
 
@@ -53,9 +53,30 @@ func drop_ingredient():
 
 func _on_detection_area_entered(area:Area2D):
     if area is Ingredient:
-        ingredient_in_range = area # again, this is WHICH ingredient is in range
+        ingredients_in_range.append(area) # add the ingredient to the array
 
 
 func _on_detection_area_exited(area:Area2D):
     if area is Ingredient:
-        ingredient_in_range = null
+        ingredients_in_range.erase(area) # Array.erase(value) removes the value from the array (takes the ingredient out of the array)
+
+
+func nearest_ingredient() -> Ingredient:
+    # var prev_ingr : Ingredient
+    var first_loop = true
+    var nearest_ingr
+
+    for ingredient in ingredients_in_range:
+        if first_loop:
+            first_loop = false
+            nearest_ingr = ingredient
+        else:
+            var nearest_ingr_distance = nearest_ingr.position - position
+            var distance = ingredient.position - position
+
+            if nearest_ingr_distance > distance: # current ingr is the new nearest
+                nearest_ingr = ingredient
+            elif nearest_ingr_distance < distance: # new nearest doesnt change
+                pass
+    
+    return nearest_ingr
