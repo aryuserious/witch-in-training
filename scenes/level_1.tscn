@@ -26,3 +26,4 @@ position = Vector2(476, 422)
 position = Vector2(803, 202)
 
 [node name="Stats" parent="." instance=ExtResource("5_xuif7")]
+visible = false

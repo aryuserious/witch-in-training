@@ -7,6 +7,8 @@ var player_current_ingredient : Ingredient
 
 
 func _process(_delta):
+    if Input.is_action_just_pressed("show-hide stats"):
+        visible = !visible
     var ingrs_in_range_string = ""
     for ingr in player_ingredients_in_range:
         ingrs_in_range_string += Ingredient.ingredient_type_as_string(ingr) + ", "
