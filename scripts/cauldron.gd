@@ -8,7 +8,7 @@ var player_in_range : bool = false
 var player : Player
 
 var potions = {
-    "Healing Potion" : "potion.new() here"
+    "Healing Potion" : Potion.new( [ Ingredient.new(Ingredient.type.GINGER_ROOT), Ingredient.new(Ingredient.type.PEPPERMINT_CANDY )], "Healing" )
 }
 
 
@@ -40,7 +40,7 @@ class Potion:
     var ingredients : Array[Ingredient]
     var effect = ""
 
-    func _init(ingredients_param : Array[Ingredient], effect_param : String, rarity_param = rarities.COMMON):
-        ingredients = ingredients_param
+    func _init(ingrs : Array[Ingredient], effect_param : String, rarity_param = rarities.COMMON):
+        ingredients = ingrs
         effect = effect_param
         rarity = rarity_param

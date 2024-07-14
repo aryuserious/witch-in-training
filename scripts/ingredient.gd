@@ -28,6 +28,10 @@ func set_sprite_texture():
                 $Sprite.region_rect = ingredient_regions["peppermint candy"]
 
 
+func _init(ingr_type : type):
+    ingredient_type = ingr_type
+
+
 static func ingredient_type_as_string(ingredient : Ingredient) -> String:
     if ingredient:
         match ingredient.ingredient_type:
