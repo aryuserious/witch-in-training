@@ -7,6 +7,8 @@ enum type { GINGER_ROOT, PEPPERMINT_CANDY, THORNED_ROSE, HONEY, LEECH, SALT, CAT
 var ingredient_regions = {
     "ginger root" : Rect2(123, 15, 55, 57),
     "peppermint candy" : Rect2(4, 16, 63, 59),
+    "thorned rose" : Rect2(224, 21, 51, 49),
+    "salt" : Rect2(308, 21, 67, 55)
 }
 
 
