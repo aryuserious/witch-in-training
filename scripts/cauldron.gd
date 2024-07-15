@@ -8,7 +8,7 @@ var player_in_range : bool = false
 var player : Player
 
 var potions = {
-    "Healing Potion" : Potion.new( [ Ingredient.new(Ingredient.type.GINGER_ROOT), Ingredient.new(Ingredient.type.PEPPERMINT_CANDY )], "Healing" )
+    "Healing Potion" : Potion.new( [ Ingredient.new(Ingredient.type.GINGER_ROOT), Ingredient.new(Ingredient.type.GINGER_ROOT), Ingredient.new(Ingredient.type.PEPPERMINT_CANDY ), Ingredient.new(Ingredient.type.THORNED_ROSE)], "Healing" )
 }
 
 
