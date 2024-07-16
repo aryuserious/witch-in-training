@@ -13,14 +13,29 @@ var ingredient_regions = {
 
 
 func _ready():
-    set_sprite_texture()
-    # RANDOM LOCATION #
     var x = randi_range(0, 960)
     var y = randi_range(0, 540)
-    position = Vector2(x, y)
+    global_position = Vector2(x, y)
+
+    # # ADD CHILDREN #
+    var s = Sprite2D.new()
+    s.texture = load("res://assets/ingredients.png")
+    s.scale = Vector2(0.4, 0.4)
+    s.name = "Sprite"
+    s.region_enabled = true
+    add_child(s)
+    set_sprite_region()
+
+    var collision = CollisionShape2D.new()
+    collision.shape = preload("res://assets/collisionshape.tres")
+    add_child(collision)
+
+    # RANDOM LOCATION #
+    print("Ingredient made")
+    
 
 
-func set_sprite_texture():
+func set_sprite_region():
     match ingredient_type:
         type.GINGER_ROOT:
             if has_node("Sprite"):
@@ -28,6 +43,12 @@ func set_sprite_texture():
         type.PEPPERMINT_CANDY:
             if has_node("Sprite"):
                 $Sprite.region_rect = ingredient_regions["peppermint candy"]
+        type.THORNED_ROSE:
+            if has_node("Sprite"):
+                $Sprite.region_rect = ingredient_regions["thorned rose"]
+        type.SALT:
+            if has_node("Sprite"):
+                $Sprite.region_rect = ingredient_regions["salt"]
 
 
 func _init(ingr_type : type):
