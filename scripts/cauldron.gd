@@ -3,17 +3,39 @@ class_name Cauldron
 extends StaticBody2D
 
 
+var current_potion : Potion
+var needed_ingredients : Array[Ingredient]
 var current_ingredients : Array[Ingredient]
 var player_in_range : bool = false
 var player : Player
 
 var potions = {
-    "Healing Potion" : Potion.new( [ Ingredient.new(Ingredient.type.GINGER_ROOT), Ingredient.new(Ingredient.type.GINGER_ROOT), Ingredient.new(Ingredient.type.PEPPERMINT_CANDY ), Ingredient.new(Ingredient.type.THORNED_ROSE)], "Healing" )
+    "Healing Potion" : Potion.new( [ Ingredient.new(Ingredient.type.GINGER_ROOT), Ingredient.new(Ingredient.type.GINGER_ROOT), Ingredient.new(Ingredient.type.PEPPERMINT_CANDY), Ingredient.new(Ingredient.type.THORNED_ROSE) ], "Healing" ),
+    "Death Potion" : Potion.new( [ Ingredient.new(Ingredient.type.THORNED_ROSE), Ingredient.new(Ingredient.type.GINGER_ROOT), Ingredient.new(Ingredient.type.PEPPERMINT_CANDY) ], "Death", 1 )
 }
+
+
+func _ready():
+    select_potion()
 
 
 func _physics_process(_delta):
     pass
+
+
+func select_potion():
+    var possible_potions : Array[Potion] = [] 
+
+    for potion in potions:
+        if Global.difficulty == potions[potion].rarity:
+            possible_potions.append(potions[potion])
+        else:
+            continue
+    
+    var i = randi_range(0, possible_potions.size())
+    current_potion = potions[i]
+    needed_ingredients = current_potion.ingredients
+    current_ingredients.clear()
 
 
 func _on_detection_body_entered(body:Node2D):
@@ -40,7 +62,7 @@ class Potion:
     var ingredients : Array[Ingredient]
     var effect = ""
 
-    func _init(ingrs : Array[Ingredient], effect_param : String, rarity_param = rarities.COMMON):
+    func _init(ingrs : Array[Ingredient], e : String, r = rarities.COMMON):
         ingredients = ingrs
-        effect = effect_param
-        rarity = rarity_param
+        effect = e
+        rarity = r
