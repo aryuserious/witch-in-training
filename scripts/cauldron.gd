@@ -34,8 +34,8 @@ func select_potion():
         else:
             continue
     
-    var i = randi_range(0, possible_potions.size())
-    current_potion = potions[i]
+    var i = randi_range(0, possible_potions.size() - 1)
+    current_potion = possible_potions[i]
     needed_ingredients = current_potion.ingredients
     current_ingredients.clear()
     new_potion.emit(current_potion)

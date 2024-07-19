@@ -18,5 +18,7 @@ func _process(_delta):
 
 func _on_cauldron_new_potion(potion : Cauldron.Potion):
     for ingr in potion.ingredients:
-        var i = Ingredient.new(ingr.ingredient_type)
+        var i = ingr_scene.instantiate()
+        if i is Ingredient:
+            i.ingredient_type = ingr.ingredient_type
         add_child(i)
