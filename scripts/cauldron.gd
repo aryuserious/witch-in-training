@@ -11,8 +11,8 @@ var player_in_range : bool = false
 var player : Player
 
 var potions : Array[Potion] = [
-    Potion.new( [ Ingredient.new(Ingredient.type.GINGER_ROOT), Ingredient.new(Ingredient.type.GINGER_ROOT), Ingredient.new(Ingredient.type.PEPPERMINT_CANDY), Ingredient.new(Ingredient.type.THORNED_ROSE) ], "Healing" ),
-    Potion.new( [ Ingredient.new(Ingredient.type.THORNED_ROSE), Ingredient.new(Ingredient.type.GINGER_ROOT), Ingredient.new(Ingredient.type.PEPPERMINT_CANDY) ], "Death", 1 )
+    Potion.new( [ Ingredient.create(Ingredient.type.GINGER_ROOT), Ingredient.create(Ingredient.type.GINGER_ROOT), Ingredient.create(Ingredient.type.PEPPERMINT_CANDY), Ingredient.create(Ingredient.type.THORNED_ROSE) ], "Healing" ),
+    Potion.new( [ Ingredient.create(Ingredient.type.THORNED_ROSE), Ingredient.create(Ingredient.type.GINGER_ROOT), Ingredient.create(Ingredient.type.PEPPERMINT_CANDY) ], "Death", 1 )
 ]
 
 
@@ -39,8 +39,7 @@ func select_potion():
     needed_ingredients = current_potion.ingredients
     current_ingredients.clear()
     new_potion.emit(current_potion)
-    # for ingr in needed_ingredients:
-    #     get_parent().add_child(ingr)
+
 
 
 func _on_detection_body_entered(body:Node2D):

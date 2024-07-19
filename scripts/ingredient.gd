@@ -16,6 +16,7 @@ func _ready():
     var x = randi_range(0, 960)
     var y = randi_range(0, 540)
     global_position = Vector2(x, y)
+    set_sprite_region()
 
     # # ADD CHILDREN #
     # var s = Sprite2D.new()
@@ -31,8 +32,17 @@ func _ready():
     # add_child(collision)
 
     # RANDOM LOCATION #
-    print("Ingredient made")
-    
+    print("Ingredient made")  
+
+
+func _init():
+    pass
+
+
+static func create(ingr_type : type) -> Ingredient:
+    var ingredient = Ingredient.new()
+    ingredient.ingredient_type = ingr_type
+    return ingredient
 
 
 func set_sprite_region():
@@ -51,8 +61,8 @@ func set_sprite_region():
                 $Sprite.region_rect = ingredient_regions["salt"]
 
 
-func _init(ingr_type : type):
-    ingredient_type = ingr_type
+# func _init(ingr_type : type = (0 as type)):
+#     ingredient_type = ingr_type
 
 
 static func ingredient_type_as_string(ingredient : Ingredient) -> String:
