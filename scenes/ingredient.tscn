@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" path="res://scripts/ingredient.gd" id="1_vuxb1"]
 [ext_resource type="Texture2D" uid="uid://d3v77sveuc4qg" path="res://assets/ingredients.png" id="2_a7wxe"]
-[ext_resource type="Shape2D" uid="uid://ue4c1q8ncl73" path="res://assets/collisionshape.tres" id="3_jrt0x"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cxheu"]
+radius = 11.0454
 
 [node name="Ingredient" type="Area2D"]
 z_index = 5
@@ -17,4 +19,4 @@ region_enabled = true
 region_rect = Rect2(4, 16, 63, 59)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = ExtResource("3_jrt0x")
+shape = SubResource("CircleShape2D_cxheu")

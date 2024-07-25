@@ -3,10 +3,10 @@ class_name Cauldron
 extends StaticBody2D
 
 
-signal new_potion(potion : Potion)
-var current_potion : Potion
-var needed_ingredients : Array[Ingredient]
-var current_ingredients : Array[Ingredient]
+signal new_potion(potion : Potion) # alerted when a new potion is selected
+var current_potion : Potion # the potion the player is trying to make
+var needed_ingredients : Array[Ingredient] # the ingrs that are still needed (meaning, once an ingredient gets put into the cauldron that WAS needed, it is no longer needed and gets removed from this array)
+var current_ingredients : Array[Ingredient] # the ingrs that are in the cauldron
 
 var player_in_range : bool = false
 var player : Player
@@ -14,7 +14,7 @@ var player : Player
 @onready var detection = get_parent().get_node("CauldronDetection")
 
 var potions : Array[Potion] = [
-    Potion.new( [ Ingredient.create(Ingredient.type.GINGER_ROOT), Ingredient.create(Ingredient.type.GINGER_ROOT), Ingredient.create(Ingredient.type.PEPPERMINT_CANDY), Ingredient.create(Ingredient.type.THORNED_ROSE) ], "Healing" ),
+    Potion.new( [ Ingredient.create(Ingredient.type.GINGER_ROOT), Ingredient.create(Ingredient.type.GINGER_ROOT), Ingredient.create(Ingredient.type.PEPPERMINT_CANDY) ], "Healing" ),
     Potion.new( [ Ingredient.create(Ingredient.type.THORNED_ROSE), Ingredient.create(Ingredient.type.GINGER_ROOT), Ingredient.create(Ingredient.type.PEPPERMINT_CANDY) ], "Death", 1 )
 ]
 
@@ -44,6 +44,22 @@ func select_potion():
     needed_ingredients = current_potion.ingredients
     current_ingredients.clear()
     new_potion.emit(current_potion)
+
+
+# func all_ingrs_are_required() -> bool:
+#     var ingrs_req_status : Array[bool] # if first ingr is required and the last 2 are not, array is [true, false, false]
+#     # (describe here)
+#     for ingr in current_ingredients:
+#         var ingr_type := ingr.ingredient_type as Ingredient.type # c
+#         var ingr_is_req : bool
+
+#         # get needed ingredient types into an array
+#         var req_ingr_types : Array[Ingredient.type]
+#         for ni in current_potion.ingredients:
+#             req_ingr_types.append(ni.ingredient_type)
+        
+#         if ingr_type in req_ingr_types:
+#             ingr_is_req
 
 
 
