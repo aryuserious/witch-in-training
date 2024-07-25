@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bxg1rh7mqq515"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="Time" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Time"
+
+[node name="Panel" type="PanelContainer" parent="."]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 98.0
+offset_bottom = 60.0
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+
+[node name="Potion" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+text = "Potion"
+
+[node name="Ingredients" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+text = "Ingredients"
