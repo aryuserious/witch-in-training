@@ -3,9 +3,8 @@
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_u0nfh"]
 [ext_resource type="Texture2D" uid="uid://di5lr3dycx46x" path="res://assets/player.png" id="2_gck5r"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dtcbc"]
-radius = 21.0
-height = 100.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iaacu"]
+radius = 8.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7ixw2"]
 radius = 67.0
@@ -16,16 +15,19 @@ collision_mask = 9
 script = ExtResource("1_u0nfh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -52.25)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_gck5r")
 region_enabled = true
 region_rect = Rect2(921.162, 212.275, 112.697, 215.12)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
-shape = SubResource("CapsuleShape2D_dtcbc")
+position = Vector2(0, -9)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_iaacu")
 
 [node name="Detection" type="Area2D" parent="."]
+position = Vector2(0, -52.25)
 collision_layer = 16
 collision_mask = 12
 
@@ -33,7 +35,7 @@ collision_mask = 12
 shape = SubResource("CircleShape2D_7ixw2")
 
 [node name="HandPosition" type="Node2D" parent="."]
-position = Vector2(-14, 23)
+position = Vector2(-14, -29.25)
 
 [connection signal="area_entered" from="Detection" to="." method="_on_detection_area_entered"]
 [connection signal="area_exited" from="Detection" to="." method="_on_detection_area_exited"]

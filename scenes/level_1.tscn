@@ -1,20 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://2571m6godsxt"]
+[gd_scene load_steps=6 format=3 uid="uid://2571m6godsxt"]
 
 [ext_resource type="Script" path="res://scripts/level_1.gd" id="1_cltiy"]
 [ext_resource type="PackedScene" uid="uid://c5sekepb63mku" path="res://scenes/player.tscn" id="1_iw33g"]
 [ext_resource type="PackedScene" uid="uid://d34dwh7n46jpu" path="res://scenes/cauldron.tscn" id="3_7uji8"]
+[ext_resource type="PackedScene" uid="uid://bxagv38tvr6qd" path="res://scenes/cauldron_detection.tscn" id="5_42agb"]
 [ext_resource type="PackedScene" uid="uid://c6uq1yph8uswp" path="res://scenes/stats.tscn" id="5_xuif7"]
 
 [node name="Level1" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_cltiy")
 
 [node name="Player" parent="." instance=ExtResource("1_iw33g")]
-position = Vector2(431, 274)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(479, 234)
 
 [node name="Cauldron" parent="." instance=ExtResource("3_7uji8")]
 position = Vector2(803, 202)
 
 [node name="Stats" parent="." instance=ExtResource("5_xuif7")]
 visible = false
+
+[node name="CauldronDetection" parent="." instance=ExtResource("5_42agb")]
+position = Vector2(717, 177)
+scale = Vector2(0.5, 0.5)

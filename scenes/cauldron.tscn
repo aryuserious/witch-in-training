@@ -1,14 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d34dwh7n46jpu"]
+[gd_scene load_steps=3 format=3 uid="uid://d34dwh7n46jpu"]
 
 [ext_resource type="Script" path="res://scripts/cauldron.gd" id="1_o44t3"]
-[ext_resource type="Texture2D" uid="uid://lg0dk8lf2dn4" path="res://assets/circle0.png" id="1_wdrpe"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jfit8"]
 radius = 14.0
 height = 108.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_mvid7"]
-radius = 43.1741
 
 [node name="Cauldron" type="StaticBody2D"]
 scale = Vector2(0.5, 0.5)
@@ -23,20 +19,3 @@ polygon = PackedVector2Array(-80, -23, 73, -23, 72, -12, 63, -9, 55, 46, 26, 60,
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_jfit8")
-
-[node name="Detection" type="Area2D" parent="."]
-collision_layer = 16
-collision_mask = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="Detection"]
-modulate = Color(1, 0.546667, 0.2, 1)
-position = Vector2(-111.5, 0)
-scale = Vector2(5.1875, 4.84375)
-texture = ExtResource("1_wdrpe")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
-position = Vector2(-112, 0)
-shape = SubResource("CircleShape2D_mvid7")
-
-[connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
-[connection signal="body_exited" from="Detection" to="." method="_on_detection_body_exited"]

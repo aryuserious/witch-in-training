@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" path="res://scripts/ingredient.gd" id="1_vuxb1"]
 [ext_resource type="Texture2D" uid="uid://d3v77sveuc4qg" path="res://assets/ingredients.png" id="2_a7wxe"]
-[ext_resource type="Shape2D" path="res://assets/collisionshape.tres" id="3_jrt0x"]
+[ext_resource type="Shape2D" uid="uid://ue4c1q8ncl73" path="res://assets/collisionshape.tres" id="3_jrt0x"]
 
-[node name="IngredientScene" type="Area2D"]
+[node name="Ingredient" type="Area2D"]
+z_index = 5
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_vuxb1")
