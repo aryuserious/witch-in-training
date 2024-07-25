@@ -7,8 +7,11 @@ signal new_potion(potion : Potion)
 var current_potion : Potion
 var needed_ingredients : Array[Ingredient]
 var current_ingredients : Array[Ingredient]
+
 var player_in_range : bool = false
 var player : Player
+
+@onready var detection = get_parent().get_node("CauldronDetection")
 
 var potions : Array[Potion] = [
     Potion.new( [ Ingredient.create(Ingredient.type.GINGER_ROOT), Ingredient.create(Ingredient.type.GINGER_ROOT), Ingredient.create(Ingredient.type.PEPPERMINT_CANDY), Ingredient.create(Ingredient.type.THORNED_ROSE) ], "Healing" ),
@@ -21,6 +24,8 @@ func _ready():
 
 
 func _physics_process(_delta):
+    
+
     if Input.is_action_just_pressed("test"):
         select_potion()
 
@@ -45,12 +50,16 @@ func select_potion():
 func _on_detection_body_entered(body:Node2D):
     if body is Player:
         player_in_range = true
-        player = body
+        player = body as Player
+        
+        detection.get_node("Bright").visible = true
 
 
 func _on_detection_body_exited(body:Node2D):
     if body is Player:
         player_in_range = false
+
+        detection.get_node("Bright").visible = false
 
 
 class Potion:

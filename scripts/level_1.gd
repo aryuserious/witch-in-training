@@ -20,9 +20,9 @@ func _on_cauldron_new_potion(potion : Cauldron.Potion):
     for ingr in potion.ingredients:
         var i = ingr_scene.instantiate()
 
-        print("Instantiated node:", i)
-        print("Type of instance:", type_string(typeof(i)))
-        print("Instance script class:", i.get_script())
+        # print("Instantiated node:", i)
+        # print("Type of instance:", type_string(typeof(i)))
+        # print("Instance script class:", i.get_script())
 
         if i is Ingredient:
             i = i as Ingredient
@@ -30,8 +30,9 @@ func _on_cauldron_new_potion(potion : Cauldron.Potion):
             add_child(i)
             
 
-            print("instance is of type ingredient")
+            # print("instance is of type ingredient")
         else:
-            print("instance is not of type ingredient, instead it is: ", type_string(typeof(i)))
+            pass
+            # print("instance is not of type ingredient, instead it is: ", type_string(typeof(i)))
 
 

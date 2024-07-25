@@ -8,6 +8,7 @@ var speed = 300
 var ingredients_in_range : Array[Ingredient] # which ingredient is in range
 var current_ingredient : Ingredient # which ingredient is picked up
 
+@onready var cauldron = get_parent().get_node("Cauldron") as Cauldron
 
 func _physics_process(_delta):
     move()
@@ -16,7 +17,13 @@ func _physics_process(_delta):
         pickup_ingredient()
     
     if current_ingredient and Input.is_action_just_pressed("drop"):
-        drop_ingredient()
+        if cauldron.player_in_range == false:
+            drop_ingredient()
+        elif cauldron.player_in_range == true:
+            cauldron.current_ingredients.append(current_ingredient) # add the ingr the player is holding to the ingrs in the cauldron
+            # the ingr is gone because it is now in the cauldron
+            current_ingredient.queue_free()
+            current_ingredient = null 
     
     if current_ingredient:
         # ingredient looks like its being held by the player
