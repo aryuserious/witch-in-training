@@ -5,10 +5,11 @@ extends Node2D
 
 var ingr_scene = preload("res://scenes/ingredient.tscn")
 @onready var cauldron = $Cauldron as Cauldron
+@onready var start_timer = $StartTimer as Timer
 
 
 func _ready():
-    cauldron.connect("new_potion", _on_cauldron_new_potion)
+    cauldron.connect("new_potion", _on_cauldron_new_potion)    
 
 
 func _process(_delta):
@@ -34,5 +35,3 @@ func _on_cauldron_new_potion(potion : Cauldron.Potion):
         else:
             pass
             # print("instance is not of type ingredient, instead it is: ", type_string(typeof(i)))
-
-
