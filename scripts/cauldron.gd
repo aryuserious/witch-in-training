@@ -14,8 +14,18 @@ var player : Player
 @onready var detection = get_parent().get_node("CauldronDetection")
 
 var potions : Array[Potion] = [
-    Potion.new( [ Ingredient.create(Ingredient.type.GINGER_ROOT), Ingredient.create(Ingredient.type.GINGER_ROOT), Ingredient.create(Ingredient.type.PEPPERMINT_CANDY) ], "Healing" ),
-    Potion.new( [ Ingredient.create(Ingredient.type.THORNED_ROSE), Ingredient.create(Ingredient.type.GINGER_ROOT), Ingredient.create(Ingredient.type.PEPPERMINT_CANDY) ], "Death", 1 )
+    Potion.new( [
+        Ingredient.create(Ingredient.type.GINGER_ROOT),
+        Ingredient.create(Ingredient.type.GINGER_ROOT),
+        Ingredient.create(Ingredient.type.PEPPERMINT_CANDY) ], "Healing" ),
+    Potion.new( [
+        Ingredient.create(Ingredient.type.THORNED_ROSE),
+        Ingredient.create(Ingredient.type.SALT),
+        Ingredient.create(Ingredient.type.PEPPERMINT_CANDY) ], "Love" ),
+    Potion.new( [
+        Ingredient.create(Ingredient.type.THORNED_ROSE),
+        Ingredient.create(Ingredient.type.GINGER_ROOT),
+        Ingredient.create(Ingredient.type.PEPPERMINT_CANDY) ], "Death", 1 )
 ]
 
 
@@ -42,30 +52,43 @@ func select_potion():
     needed_ingredients = current_potion.ingredients # sets the needed ingredients to the ingredients of the new potion
     current_ingredients.clear() # empties the cauldron
     new_potion.emit(current_potion)
+    print("new potion")
+    print("potion is ", current_potion.effect)
+    print("there are ", needed_ingredients.size(), " needed ingredients")
 
 
 func update_needed_ingredients():
-    if current_ingredients:
+    if current_ingredients.size() > 0:
         for ci in current_ingredients: # for every ingredient that is in the cauldron...
             for ni in needed_ingredients: # go through every needed ingredient...
                 if ci.ingredient_type == ni.ingredient_type: # and if they have the same type...
                     needed_ingredients.erase(ni) # take the needed ingredient out of the needed ingredients array
 
 
-# func all_ingrs_are_required() -> bool:
-#     var ingrs_req_status : Array[bool] # if first ingr is required and the last 2 are not, array is [true, false, false]
-#     # (describe here)
-#     for ingr in current_ingredients:
-#         var ingr_type := ingr.ingredient_type as Ingredient.type # c
-#         var ingr_is_req : bool
+func all_ingrs_are_required() -> bool:
+    var ingrs_req_status : Array[bool] = [] # if first ingr is required and the last 2 are not, array is [true, false, false]
+    # (describe here)
+    for ingr in current_ingredients:
+        var ingr_type := ingr.ingredient_type as Ingredient.type
+        var ingr_is_req : bool
 
-#         # get needed ingredient types into an array
-#         var req_ingr_types : Array[Ingredient.type]
-#         for ni in current_potion.ingredients:
-#             req_ingr_types.append(ni.ingredient_type)
+        # get needed ingredient types into an array
+        var req_ingr_types : Array[Ingredient.type] = []
+        for ni in current_potion.ingredients:
+            req_ingr_types.append(ni.ingredient_type)
         
-#         if ingr_type in req_ingr_types:
-#             ingr_is_req
+        if ingr_type in req_ingr_types:
+            ingr_is_req = true
+        else:
+            ingr_is_req = false
+        
+        ingrs_req_status.append(ingr_is_req)
+    
+    if false in ingrs_req_status:
+        return false
+    else:
+        return true
+
 
 
 
