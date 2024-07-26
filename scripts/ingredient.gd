@@ -13,17 +13,13 @@ var ingredient_regions = {
 
 
 func _ready():
+    # random location
     var x = randi_range(0, 960)
     var y = randi_range(0, 540)
     global_position = Vector2(x, y)
+
+    # set sprite based off type
     set_sprite_region()
-
-    # RANDOM LOCATION #
-    print("Ingredient made")  
-
-
-func _init():
-    pass
 
 
 static func create(ingr_type : type) -> Ingredient:
@@ -46,10 +42,6 @@ func set_sprite_region():
         type.SALT:
             if has_node("Sprite"):
                 $Sprite.region_rect = ingredient_regions["salt"]
-
-
-# func _init(ingr_type : type = (0 as type)):
-#     ingredient_type = ingr_type
 
 
 static func ingredient_type_as_string(ingredient : Ingredient) -> String:

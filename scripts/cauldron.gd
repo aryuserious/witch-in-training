@@ -26,20 +26,21 @@ func _ready():
 func _physics_process(_delta):
     update_needed_ingredients()
 
+    if needed_ingredients.size() == 0:
+        select_potion()
+
 
 func select_potion():
     var possible_potions : Array[Potion] = [] 
 
-    for potion in potions:
-        if Global.difficulty == potion.rarity:
-            possible_potions.append(potion)
-        else:
-            continue
+    for potion in potions: # for every potion...
+        if Global.difficulty == potion.rarity: # if the rarity and game difficulty match...
+            possible_potions.append(potion) # add it to possible potions
     
-    var i = randi_range(0, possible_potions.size() - 1)
-    current_potion = possible_potions[i]
-    needed_ingredients = current_potion.ingredients
-    current_ingredients.clear()
+    var i = randi_range(0, possible_potions.size() - 1) # choose a random index
+    current_potion = possible_potions[i] # use the random index to choose from the possible potions
+    needed_ingredients = current_potion.ingredients # sets the needed ingredients to the ingredients of the new potion
+    current_ingredients.clear() # empties the cauldron
     new_potion.emit(current_potion)
 
 
