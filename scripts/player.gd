@@ -23,7 +23,10 @@ func _physics_process(_delta):
         elif cauldron.player_in_range == true:
             cauldron.current_ingredients.append(current_ingredient) # add the ingr the player is holding to the ingrs in the cauldron
             # the ingr is gone because it is now in the cauldron
-            current_ingredient.queue_free()
+            #current_ingredient.visible = false
+            var collision = current_ingredient.get_node("Collision") as CollisionShape2D
+            collision.set_deferred("disabled", true)
+            current_ingredient.visible = false
             current_ingredient = null 
     
     if current_ingredient:
