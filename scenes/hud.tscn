@@ -44,6 +44,9 @@ layout_mode = 2
 [node name="Potion" type="Label" parent="Panel/VBox"]
 layout_mode = 2
 
+[node name="IngrTypes" type="VBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+
 [node name="Start" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15

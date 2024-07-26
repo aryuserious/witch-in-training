@@ -3,8 +3,6 @@ class_name HUD
 extends CanvasLayer
 
 
-var ingredient_types : Array[String]
-
 @export var cauldron : Cauldron
 
 
@@ -19,7 +17,13 @@ func _process(_delta):
 
 
 func _on_cauldron_new_potion(potion : Cauldron.Potion):
+    var ingredient_types : Array[String]
+    
     $Panel/VBox/Potion.text = potion.effect + " Potion" # it'll end up like: "Healing Potion", "Death Potion", etc.
+
+    # delete old ingredients
+    for ingr in $Panel/VBox/IngrTypes.get_children():
+        ingr.queue_free()
 
     for ingr in potion.ingredients: # for every potion ingredient...
         var t = Ingredient.ingredient_type_as_string(ingr) # save the ingredient type to a variable...
@@ -28,7 +32,7 @@ func _on_cauldron_new_potion(potion : Cauldron.Potion):
     for ingr_type in ingredient_types: # for every ingr type in the ingredient types array...
         var label = Label.new() # make a new label...
         label.text = "- " + ingr_type # set the text to the ingredient type... (it'll end up like - Ginger Root, - Throned Rose)
-        $Panel/VBox.add_child(label) # add the label to the HUD list
+        $Panel/VBox/IngrTypes.add_child(label) # add the label to the HUD list
 
 
 func _on_start_timer_timeout():
