@@ -18,19 +18,6 @@ func _ready():
     global_position = Vector2(x, y)
     set_sprite_region()
 
-    # # ADD CHILDREN #
-    # var s = Sprite2D.new()
-    # s.texture = load("res://assets/ingredients.png")
-    # s.scale = Vector2(0.4, 0.4)
-    # s.name = "Sprite"
-    # s.region_enabled = true
-    # add_child(s)
-    # set_sprite_region()
-
-    # var collision = CollisionShape2D.new()
-    # collision.shape = preload("res://assets/collisionshape.tres")
-    # add_child(collision)
-
     # RANDOM LOCATION #
     print("Ingredient made")  
 
