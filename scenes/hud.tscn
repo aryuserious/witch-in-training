@@ -1,6 +1,25 @@
-[gd_scene format=3 uid="uid://bxg1rh7mqq515"]
+[gd_scene load_steps=3 format=3 uid="uid://bxg1rh7mqq515"]
+
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_41je0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_27rcv"]
+bg_color = Color(0.215686, 0.215686, 0.215686, 0.713726)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8, 0.8, 0.8, 0.815686)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 10.0
+expand_margin_bottom = 5.0
 
 [node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_41je0")
 
 [node name="Time" type="Label" parent="."]
 anchors_preset = 5
@@ -13,10 +32,11 @@ grow_horizontal = 2
 text = "Time"
 
 [node name="Panel" type="PanelContainer" parent="."]
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 98.0
-offset_bottom = 60.0
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 72.0
+offset_bottom = 44.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_27rcv")
 
 [node name="VBox" type="VBoxContainer" parent="Panel"]
 layout_mode = 2
@@ -24,7 +44,3 @@ layout_mode = 2
 [node name="Potion" type="Label" parent="Panel/VBox"]
 layout_mode = 2
 text = "Potion"
-
-[node name="Ingredients" type="Label" parent="Panel/VBox"]
-layout_mode = 2
-text = "Ingredients"
