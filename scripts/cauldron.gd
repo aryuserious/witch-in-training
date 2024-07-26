@@ -24,7 +24,7 @@ func _ready():
 
 
 func _physics_process(_delta):
-    pass
+    update_needed_ingredients()
 
 
 func select_potion():
@@ -41,6 +41,14 @@ func select_potion():
     needed_ingredients = current_potion.ingredients
     current_ingredients.clear()
     new_potion.emit(current_potion)
+
+
+func update_needed_ingredients():
+    if current_ingredients:
+        for ci in current_ingredients: # for every ingredient that is in the cauldron...
+            for ni in needed_ingredients: # go through every needed ingredient...
+                if ci.ingredient_type == ni.ingredient_type: # and if they have the same type...
+                    needed_ingredients.erase(ni) # take the needed ingredient out of the needed ingredients array
 
 
 # func all_ingrs_are_required() -> bool:

@@ -16,6 +16,7 @@ func _physics_process(_delta):
     if ingredients_in_range.size() > 0 and not current_ingredient and Input.is_action_just_pressed("pickup"):
         pickup_ingredient()
     
+    # drop ingredient but if the player is range of the cauldron, drop it in the caulron
     if current_ingredient and Input.is_action_just_pressed("drop"):
         if cauldron.player_in_range == false:
             drop_ingredient()
