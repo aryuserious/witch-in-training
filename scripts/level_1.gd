@@ -9,7 +9,8 @@ var ingr_scene = preload("res://scenes/ingredient.tscn")
 
 
 func _ready():
-    cauldron.connect("new_potion", _on_cauldron_new_potion)    
+    cauldron.connect("new_potion", _on_cauldron_new_potion)
+    get_tree().paused = true   
 
 
 func _process(_delta):

@@ -34,3 +34,4 @@ func _on_cauldron_new_potion(potion : Cauldron.Potion):
 func _on_start_timer_timeout():
     $Start.visible = false
     cauldron.select_potion()
+    get_tree().paused = false

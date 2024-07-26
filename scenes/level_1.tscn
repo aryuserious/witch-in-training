@@ -15,6 +15,12 @@ script = ExtResource("1_cltiy")
 position = Vector2(479, 234)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.5
+drag_top_margin = 0.3
+drag_right_margin = 0.5
+drag_bottom_margin = 0.5
 
 [node name="Cauldron" parent="." instance=ExtResource("3_7uji8")]
 position = Vector2(803, 202)
@@ -27,9 +33,11 @@ scale = Vector2(0.5, 0.5)
 visible = false
 
 [node name="HUD" parent="." node_paths=PackedStringArray("cauldron") instance=ExtResource("6_mlbeg")]
+process_mode = 3
 cauldron = NodePath("../Cauldron")
 
 [node name="StartTimer" type="Timer" parent="."]
+process_mode = 2
 wait_time = 3.0
 one_shot = true
 autostart = true
