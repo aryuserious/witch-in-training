@@ -7,8 +7,14 @@ var speed = 300
 
 var ingredients_in_range : Array[Ingredient] # which ingredient is in range
 var current_ingredient : Ingredient # which ingredient is picked up
+signal try_ingredient(ingredient : Ingredient, type : Ingredient.type) # when the player tries to put an ingredient into the cauldron
 
 @onready var cauldron = get_parent().get_node("Cauldron") as Cauldron
+
+
+func _ready():
+    cauldron.connect("accept_ingredient", _on_cauldron_accepted_ingredient)
+
 
 func _physics_process(_delta):
     move()
@@ -21,13 +27,13 @@ func _physics_process(_delta):
         if cauldron.player_in_range == false:
             drop_ingredient()
         elif cauldron.player_in_range == true:
-            cauldron.current_ingredients.append(current_ingredient) # add the ingr the player is holding to the ingrs in the cauldron
-            # the ingr is gone because it is now in the cauldron
-            #current_ingredient.visible = false
-            var collision = current_ingredient.get_node("Collision") as CollisionShape2D
-            collision.set_deferred("disabled", true)
-            current_ingredient.visible = false
-            current_ingredient = null 
+            try_ingredient.emit(current_ingredient, current_ingredient.ingredient_type)
+            # cauldron.current_ingredients.append(current_ingredient) # add the ingr the player is holding to the ingrs in the cauldron
+            # # the ingr is gone because it is now in the cauldron
+            # var collision = current_ingredient.get_node("Collision") as CollisionShape2D
+            # collision.set_deferred("disabled", true)
+            # current_ingredient.visible = false
+            # current_ingredient = null 
     
     if current_ingredient:
         # ingredient looks like its being held by the player
@@ -51,6 +57,11 @@ func drop_ingredient():
     current_ingredient.position.y += 20
     current_ingredient.scale = Vector2(1, 1)
     
+    current_ingredient = null
+
+
+func _on_cauldron_accepted_ingredient(ingr : Ingredient):
+    current_ingredient.queue_free()
     current_ingredient = null
 
 

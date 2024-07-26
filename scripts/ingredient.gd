@@ -45,9 +45,9 @@ func set_sprite_region():
                 $Sprite.region_rect = ingredient_regions["salt"]
 
 
-static func ingredient_type_as_string(ingredient : Ingredient) -> String:
-    if ingredient:
-        match ingredient.ingredient_type:
+static func ingredient_type_as_string(ingr_type : Ingredient.type) -> String:
+    if ingr_type or ingr_type == 0:
+        match ingr_type:
             Ingredient.type.GINGER_ROOT:
                 return "Ginger Root"
             Ingredient.type.PEPPERMINT_CANDY:

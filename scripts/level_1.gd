@@ -20,12 +20,12 @@ func _process(_delta):
 
 func _on_cauldron_new_potion(potion : Cauldron.Potion):
     # spawn necessary ingredeinets
-    for ingr in potion.ingredients:
+    for ingr_type in potion.ingredient_types:
         var i = ingr_scene.instantiate()
 
         if i is Ingredient:
             i = i as Ingredient
-            i.ingredient_type = ingr.ingredient_type
+            i.ingredient_type = ingr_type
             add_child(i)
     
     # spawn extra ingredients
