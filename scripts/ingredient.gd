@@ -20,6 +20,7 @@ func _ready():
 
     # set sprite based off type
     set_sprite_region()
+    print("ingredient made")
 
 
 static func create(ingr_type : type) -> Ingredient:
