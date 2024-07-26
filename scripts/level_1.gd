@@ -18,20 +18,18 @@ func _process(_delta):
 
 
 func _on_cauldron_new_potion(potion : Cauldron.Potion):
+    # spawn necessary ingredeinets
     for ingr in potion.ingredients:
         var i = ingr_scene.instantiate()
-
-        # print("Instantiated node:", i)
-        # print("Type of instance:", type_string(typeof(i)))
-        # print("Instance script class:", i.get_script())
 
         if i is Ingredient:
             i = i as Ingredient
             i.ingredient_type = ingr.ingredient_type
             add_child(i)
-            
-
-            # print("instance is of type ingredient")
-        else:
-            pass
-            # print("instance is not of type ingredient, instead it is: ", type_string(typeof(i)))
+    
+    # spawn extra ingredients
+    var num_of_extra_ingrs = randi_range(1, 5)
+    for ingr in num_of_extra_ingrs:
+        var ei = ingr_scene.instantiate() as Ingredient # ei is extra ingredient
+        ei.ingredient_type = randi_range(0, Ingredient.type.size())
+        add_child(ei)
