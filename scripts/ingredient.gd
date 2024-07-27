@@ -54,8 +54,14 @@ static func ingredient_type_as_string(ingr_type : Ingredient.type) -> String:
                 return "Peppermint Candy"
             Ingredient.type.THORNED_ROSE:
                 return "Thorned Rose"
+            Ingredient.type.HONEY:
+                return "Honey"
+            Ingredient.type.LEECH:
+                return "Leech"
             Ingredient.type.SALT:
                 return "Salt"
+            Ingredient.type.CAT_HAIR:
+                return "Cat Hair"
             _:
                 return "???"
     else:

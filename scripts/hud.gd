@@ -17,7 +17,7 @@ func _process(_delta):
 
 
 func _on_cauldron_new_potion(potion : Cauldron.Potion):
-    var ingredient_types : Array[String]
+    var ingredient_types : Array[String] = []
 
     $Panel/VBox/Potion.text = potion.effect + " Potion" # it'll end up like: "Healing Potion", "Death Potion", etc.
 

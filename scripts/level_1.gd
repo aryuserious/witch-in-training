@@ -32,5 +32,6 @@ func _on_cauldron_new_potion(potion : Cauldron.Potion):
     var num_of_extra_ingrs = randi_range(1, 5)
     for ingr in num_of_extra_ingrs:
         var ei = ingr_scene.instantiate() as Ingredient # ei is extra ingredient
-        ei.ingredient_type = randi_range(0, Ingredient.type.size())
+        var ingrs_with_sprites = [Ingredient.type.GINGER_ROOT, Ingredient.type.PEPPERMINT_CANDY, Ingredient.type.THORNED_ROSE, Ingredient.type.SALT]
+        ei.ingredient_type = ingrs_with_sprites[randi_range(0, ingrs_with_sprites.size() - 1)] # choose a random ingredient with a sprite
         add_child(ei)
