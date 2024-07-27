@@ -9,25 +9,29 @@
 [ext_resource type="Texture2D" uid="uid://dj4ygkw1wgugc" path="res://assets/Block0.png" id="7_jy1q0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lv6tj"]
-size = Vector2(16, 576)
+size = Vector2(17, 576)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u4m4p"]
-size = Vector2(1008, 16)
+size = Vector2(1008, 31)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_557q4"]
-size = Vector2(16, 592)
+size = Vector2(18, 592)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bxjvc"]
-size = Vector2(992, 16)
+size = Vector2(992, 8)
 
 [node name="Level1" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_cltiy")
 
 [node name="Player" parent="." instance=ExtResource("1_iw33g")]
-position = Vector2(479, 234)
+position = Vector2(479, 273)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+limit_left = -100
+limit_top = -100
+limit_right = 1050
+limit_bottom = 650
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_left_margin = 0.5
@@ -56,45 +60,62 @@ one_shot = true
 autostart = true
 
 [node name="Border" type="StaticBody2D" parent="."]
+y_sort_enabled = true
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Border"]
-position = Vector2(-24, 272)
+position = Vector2(-23.5, 272)
 shape = SubResource("RectangleShape2D_lv6tj")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Border"]
-position = Vector2(472, -24)
+position = Vector2(472, -16.5)
 shape = SubResource("RectangleShape2D_u4m4p")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Border"]
-position = Vector2(984, 264)
+position = Vector2(983, 264)
 shape = SubResource("RectangleShape2D_557q4")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Border"]
-position = Vector2(480, 552)
+position = Vector2(480, 566)
 shape = SubResource("RectangleShape2D_bxjvc")
 
 [node name="Sprite2D" type="Sprite2D" parent="Border"]
-modulate = Color(0.207, 0.266033, 0.46, 1)
+modulate = Color(0.342, 0.439533, 0.76, 1)
 position = Vector2(480, -24)
 scale = Vector2(64, 1)
 texture = ExtResource("7_jy1q0")
 
+[node name="Sprite2D5" type="Sprite2D" parent="Border"]
+modulate = Color(0.3212, 0.297, 0.66, 1)
+position = Vector2(480, -9)
+scale = Vector2(62, 1)
+texture = ExtResource("7_jy1q0")
+
 [node name="Sprite2D2" type="Sprite2D" parent="Border"]
-modulate = Color(0.207, 0.266033, 0.46, 1)
+modulate = Color(0.342, 0.439533, 0.76, 1)
+z_index = 1
 position = Vector2(480, 552)
 scale = Vector2(64, 1)
 texture = ExtResource("7_jy1q0")
 
+[node name="Sprite2D6" type="Sprite2D" parent="Border"]
+modulate = Color(0.321569, 0.298039, 0.658824, 1)
+z_index = 1
+position = Vector2(480, 568)
+scale = Vector2(64, 1)
+texture = ExtResource("7_jy1q0")
+
 [node name="Sprite2D3" type="Sprite2D" parent="Border"]
-modulate = Color(0.207, 0.266033, 0.46, 1)
+modulate = Color(0.342, 0.439533, 0.76, 1)
+z_index = 1
 position = Vector2(-23.5402, 260)
 rotation = 1.5708
 scale = Vector2(36.25, 1.04961)
 texture = ExtResource("7_jy1q0")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Border"]
-modulate = Color(0.207, 0.266033, 0.46, 1)
+modulate = Color(0.342, 0.439533, 0.76, 1)
+z_index = 1
 position = Vector2(983.296, 260)
 rotation = 1.5708
 scale = Vector2(36.25, 1.0496)
