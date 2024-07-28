@@ -39,3 +39,7 @@ func _on_cauldron_new_potion(potion : Cauldron.Potion):
         ei.ingredient_type = ingrs_with_sprites[randi_range(0, ingrs_with_sprites.size() - 1)] # choose a random ingredient with a sprite
         add_child(ei)
         print("extra ingredient made")
+    
+    print("new potion")
+    print("potion is ", potion.effect)
+    print("this potion has ", potion.ingredient_types.size(), " ingredients")

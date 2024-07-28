@@ -59,14 +59,13 @@ func select_potion():
     needed_ingredient_types = current_potion.ingredient_types # sets the needed ingredients to the ingredients of the new potion
     current_ingredients_types.clear() # empties the cauldron
     new_potion.emit(current_potion)
-    print("new potion")
-    print("potion is ", current_potion.effect)
-    print("there are ", needed_ingredient_types.size(), " needed ingredients")
 
 
 func update_needed_ingredients(ingr_type : Ingredient.type):
     if ingr_type in needed_ingredient_types:
+        print("before taking ingr_type out of needed_ingredient_types, these were the ingredients of the potion", current_potion.ingredient_types)
         needed_ingredient_types.erase(ingr_type)
+        print("after taking ingr_type out of needed_ingredient_types, these are the ingredients of the potion", current_potion.ingredient_types)
 
 
 func all_ingrs_are_required() -> bool: # does nothing rn
