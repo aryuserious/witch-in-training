@@ -61,7 +61,7 @@ func drop_ingredient():
 
 
 func _on_cauldron_accepted_ingredient(ingr : Ingredient):
-    current_ingredient.queue_free()
+    get_node("..").remove_child(ingr)
     current_ingredient = null
 
 
