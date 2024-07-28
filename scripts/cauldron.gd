@@ -106,6 +106,7 @@ func _on_player_try_ingredient(ingredient : Ingredient, type : Ingredient.type):
             print("You need ", Ingredient.ingredient_type_as_string(nit))
         print("But you tried to put a(n)", Ingredient.ingredient_type_as_string(type))
     
+    # if it is the last ingredient needed in the potion
     if needed_ingredient_types.size() == 0:
         print("You completed a potion")
         select_potion()
