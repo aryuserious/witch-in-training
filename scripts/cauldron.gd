@@ -56,7 +56,9 @@ func select_potion():
     # set new potion
     var i = randi_range(0, possible_potions.size() - 1) # choose a random index
     current_potion = possible_potions[i] # use the random index to choose from the possible potions
-    needed_ingredient_types = current_potion.ingredient_types # sets the needed ingredients to the ingredients of the new potion
+    needed_ingredient_types = []
+    for ingr_type in current_potion.ingredient_types: # add all the potion's ingredient to the needed_ingredient_type array
+        needed_ingredient_types.append(ingr_type)
     current_ingredients_types.clear() # empties the cauldron
     new_potion.emit(current_potion)
 
