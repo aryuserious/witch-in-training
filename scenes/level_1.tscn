@@ -49,9 +49,10 @@ scale = Vector2(0.5, 0.5)
 [node name="Stats" parent="." instance=ExtResource("5_xuif7")]
 visible = false
 
-[node name="HUD" parent="." node_paths=PackedStringArray("cauldron") instance=ExtResource("6_mlbeg")]
+[node name="HUD" parent="." node_paths=PackedStringArray("cauldron", "game_time") instance=ExtResource("6_mlbeg")]
 process_mode = 3
 cauldron = NodePath("../Cauldron")
+game_time = NodePath("../GameTime")
 
 [node name="StartTimer" type="Timer" parent="."]
 process_mode = 2
