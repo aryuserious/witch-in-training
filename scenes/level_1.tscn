@@ -121,5 +121,9 @@ rotation = 1.5708
 scale = Vector2(36.25, 1.0496)
 texture = ExtResource("7_jy1q0")
 
+[node name="GameTime" type="Timer" parent="."]
+wait_time = 20.0
+one_shot = true
+
 [connection signal="body_entered" from="CauldronDetection" to="Cauldron" method="_on_detection_body_entered"]
 [connection signal="body_exited" from="CauldronDetection" to="Cauldron" method="_on_detection_body_exited"]

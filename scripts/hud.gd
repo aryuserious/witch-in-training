@@ -12,8 +12,11 @@ func _ready():
 
 
 func _process(_delta):
-    var t = get_parent().get_node("StartTimer") as Timer
-    $Start/Countdown.text = str(ceil(t.time_left))
+    var st = get_parent().get_node("StartTimer") as Timer
+    $Start/Countdown.text = str(ceil(st.time_left))
+
+    var gt = get_parent().get_node("GameTime") as Timer
+    $Time.text = str(ceil(gt.time_left))
 
 
 func _on_cauldron_new_potion(potion : Cauldron.Potion):
