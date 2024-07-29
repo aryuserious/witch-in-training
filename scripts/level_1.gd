@@ -29,8 +29,6 @@ func _on_cauldron_new_potion(potion : Cauldron.Potion):
             add_child(i)
             print("necessary ingredient made")
     
-    print(potion.ingredient_types)
-    
     # spawn extra ingredients
     var num_of_extra_ingrs = randi_range(1, 5)
     for ingr in num_of_extra_ingrs:

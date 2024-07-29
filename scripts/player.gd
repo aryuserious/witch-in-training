@@ -61,8 +61,7 @@ func drop_ingredient():
 
 
 func _on_cauldron_accepted_ingredient(ingr : Ingredient):
-    print("after cauldron accepted ingredient, these were the potion's ingredients", cauldron.current_potion.ingredient_types)
-    get_node("..").remove_child(ingr)
+    ingr.queue_free()
     current_ingredient = null
 
 
