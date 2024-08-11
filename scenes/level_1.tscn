@@ -126,5 +126,7 @@ texture = ExtResource("7_jy1q0")
 wait_time = 20.0
 one_shot = true
 
+[connection signal="game_over" from="Player" to="HUD" method="_on_player_game_over"]
 [connection signal="body_entered" from="CauldronDetection" to="Cauldron" method="_on_detection_body_entered"]
 [connection signal="body_exited" from="CauldronDetection" to="Cauldron" method="_on_detection_body_exited"]
+[connection signal="timeout" from="GameTime" to="Player" method="_on_game_time_timeout"]
