@@ -94,3 +94,7 @@ func nearest_ingredient() -> Ingredient:
                 pass
     
     return nearest_ingr
+
+
+func _on_game_time_timeout():
+    game_over.emit()
