@@ -8,6 +8,7 @@ var speed = 300
 var ingredients_in_range : Array[Ingredient] # which ingredient is in range
 var current_ingredient : Ingredient # which ingredient is picked up
 signal try_ingredient(ingredient : Ingredient, type : Ingredient.type) # when the player tries to put an ingredient into the cauldron
+signal game_over()
 
 @onready var cauldron = get_parent().get_node("Cauldron") as Cauldron
 

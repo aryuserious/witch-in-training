@@ -18,7 +18,7 @@ func _ready():
 func _process(_delta):
     # start timer
     var st = get_parent().get_node("StartTimer") as Timer
-    $Start/Countdown.text = str(ceil(st.time_left))
+    $Start/Countdown.text = str(ceil(st.time_left)) # this is the timer that goes 3 2 1 at the begining
 
     # game time minutes and seconds
     var s = int(ceil(game_time.time_left)) # if time left is 5.99, s is 6. if time left is 5.08, s is 6. if time left is 4.99, s is 5.
@@ -46,6 +46,13 @@ func _on_cauldron_new_potion(potion : Cauldron.Potion):
         var label = Label.new() # make a new label...
         label.text = "- " + ingr_type # set the text to the ingredient type... (it'll end up like - Ginger Root, - Throned Rose)
         ingr_list_vbox.add_child(label) # add the label to the HUD list
+
+
+func _on_player_game_over():
+    get_tree().paused = true
+    $GameOverPanel/ScoreInfo.text = "You collected " + str(Global.score) + " potions!" + "\nHigh Score: " + str(Global.high_score)
+
+    $GameOverPanel.visible = true
 
 
 func _on_start_timer_timeout():
