@@ -131,5 +131,8 @@ grow_vertical = 2
 size_flags_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_1khaw")
 
-[node name="Label" type="Label" parent="GameOverPanel"]
+[node name="ScoreInfo" type="Label" parent="GameOverPanel"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Score:
+High Score:"
