@@ -108,6 +108,7 @@ func _on_player_try_ingredient(ingredient : Ingredient, type : Ingredient.type):
     # if it is the last ingredient needed in the potion
     if needed_ingredient_types.size() == 0:
         print("You completed a potion")
+        Global.score += 1
         select_potion()
 
 
