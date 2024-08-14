@@ -13,6 +13,7 @@ var player_in_range : bool = false
 @onready var player : Player = get_node("../Player") as Player # . self ./ self ../ parent ../Node sibling
 
 @onready var detection = get_parent().get_node("CauldronDetection")
+@onready var game_time = get_node("../GameTime") as Timer
 
 var potions : Array[Potion] = [
     Potion.new( [
@@ -110,6 +111,7 @@ func _on_player_try_ingredient(ingredient : Ingredient, type : Ingredient.type):
         print("You completed a potion")
         Global.score += 1
         select_potion()
+        game_time.start(ceil(game_time.time_left) + 10)
 
 
 func _on_detection_body_entered(body:Node2D):
