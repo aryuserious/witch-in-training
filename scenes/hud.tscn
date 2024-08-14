@@ -117,6 +117,7 @@ size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 180
 
 [node name="GameOverPanel" type="PanelContainer" parent="."]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -131,8 +132,18 @@ grow_vertical = 2
 size_flags_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_1khaw")
 
-[node name="ScoreInfo" type="Label" parent="GameOverPanel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverPanel"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+
+[node name="ScoreInfo" type="Label" parent="GameOverPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
 text = "Score:
 High Score:"
+
+[node name="RetryButton" type="Button" parent="GameOverPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Retry"
+
+[connection signal="pressed" from="GameOverPanel/VBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
