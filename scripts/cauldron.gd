@@ -111,7 +111,7 @@ func _on_player_try_ingredient(ingredient : Ingredient, type : Ingredient.type):
         print("You completed a potion")
         Global.score += 1
         select_potion()
-        game_time.start(ceil(game_time.time_left) + 10) # start the game time over, with the wait time being the current time + 10 secs
+        game_time.start(ceil(game_time.time_left) + Global.difficulty ) # start the game time over, with the wait time being the current time + 10 secs
 
 
 func _on_detection_body_entered(body:Node2D):
@@ -130,12 +130,12 @@ func _on_detection_body_exited(body:Node2D):
 
 class Potion:
     enum rarities {
-        COMMON = 0,
-        UNCOMMON = 1,
-        SPECIAL = 2,
-        RARE = 3,
-        EXTRA_RARE = 4,
-        LEGENDARY = 5
+        COMMON = 5,
+        UNCOMMON = 4,
+        SPECIAL = 3,
+        RARE = 2,
+        EXTRA_RARE = 1,
+        LEGENDARY = 0
     }
     var rarity : rarities
     var ingredient_types : Array[Ingredient.type]
