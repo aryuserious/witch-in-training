@@ -25,7 +25,7 @@ y_sort_enabled = true
 script = ExtResource("1_cltiy")
 
 [node name="Player" parent="." instance=ExtResource("1_iw33g")]
-position = Vector2(479, 273)
+position = Vector2(156, 89)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 limit_left = -100
@@ -40,10 +40,10 @@ drag_right_margin = 0.5
 drag_bottom_margin = 0.5
 
 [node name="Cauldron" parent="." instance=ExtResource("3_7uji8")]
-position = Vector2(803, 202)
+position = Vector2(297, 19)
 
 [node name="CauldronDetection" parent="." instance=ExtResource("5_42agb")]
-position = Vector2(717, 177)
+position = Vector2(288, 19)
 scale = Vector2(0.5, 0.5)
 
 [node name="Stats" parent="." instance=ExtResource("5_xuif7")]
@@ -61,6 +61,7 @@ one_shot = true
 autostart = true
 
 [node name="Border" type="StaticBody2D" parent="."]
+visible = false
 y_sort_enabled = true
 collision_mask = 0
 

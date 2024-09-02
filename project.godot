@@ -79,3 +79,7 @@ test={
 2d_physics/layer_3="Ingredients"
 2d_physics/layer_4="Cauldron"
 2d_physics/layer_5="Detections"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

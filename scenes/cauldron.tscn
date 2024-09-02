@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://scripts/cauldron.gd" id="1_o44t3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jfit8"]
-radius = 14.0
-height = 108.0
+radius = 1.99999
+height = 8.0
 
 [node name="Cauldron" type="StaticBody2D"]
 scale = Vector2(0.5, 0.5)
@@ -12,9 +12,9 @@ collision_layer = 8
 script = ExtResource("1_o44t3")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2(0, -46)
-color = Color(0.133, 0.1368, 0.19, 1)
-polygon = PackedVector2Array(-80, -23, 73, -23, 72, -12, 63, -9, 55, 46, 26, 60, -24, 60, -57, 48, -62, -9, -79, -11)
+position = Vector2(-102, -46)
+color = Color(0.145801, 0.115975, 0.249258, 1)
+polygon = PackedVector2Array(94, 34, 110, 34, 110, 36, 108, 36, 106, 48, 98, 48, 96, 36, 94, 36)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708

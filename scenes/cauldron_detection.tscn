@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://lg0dk8lf2dn4" path="res://assets/circle0.png" id="1_jenog"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mvid7"]
-radius = 47.006
+radius = 10.4403
 
 [node name="CauldronDetection" type="Area2D"]
 collision_layer = 16
@@ -11,17 +11,13 @@ collision_mask = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 0.545098, 0.2, 0.443137)
-position = Vector2(0, 45.75)
-scale = Vector2(5.1875, 4.84375)
 texture = ExtResource("1_jenog")
 
 [node name="Bright" type="Sprite2D" parent="."]
 visible = false
 modulate = Color(1, 1, 1, 0.172549)
 position = Vector2(0, 45.75)
-scale = Vector2(5.1875, 4.84375)
 texture = ExtResource("1_jenog")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 45.75)
 shape = SubResource("CircleShape2D_mvid7")
