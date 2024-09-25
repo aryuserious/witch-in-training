@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxg1rh7mqq515"]
+[gd_scene load_steps=6 format=3 uid="uid://bxg1rh7mqq515"]
 
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_41je0"]
 [ext_resource type="StyleBox" uid="uid://cokgb4t6e6ntq" path="res://assets/hud_style_box.tres" id="2_u6w7x"]
+[ext_resource type="FontFile" uid="uid://c16gwq6pp2ep1" path="res://assets/c_c_red_alert_inet/C&C Red Alert [INET].ttf" id="3_xfuhb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_218o0"]
 bg_color = Color(0.215686, 0.215686, 0.215686, 0.713726)
@@ -30,120 +31,134 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
-expand_margin_left = 5.0
-expand_margin_top = 5.0
+expand_margin_left = 3.0
+expand_margin_top = 3.0
 expand_margin_right = 5.0
 expand_margin_bottom = 5.0
 
 [node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("ingr_list_vbox", "potion_label")]
 script = ExtResource("1_41je0")
-ingr_list_vbox = NodePath("ListPanel/ListVBox/IngrListVBox")
-potion_label = NodePath("ListPanel/ListVBox/Potion")
+ingr_list_vbox = NodePath("Control/ListPanel/ListVBox/IngrListVBox")
+potion_label = NodePath("Control/ListPanel/ListVBox/Potion")
 
-[node name="TimePanel" type="PanelContainer" parent="."]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -30.0
-offset_top = 15.0
-offset_right = 30.0
-offset_bottom = 55.0
-grow_horizontal = 2
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TimePanel" type="PanelContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 139.0
+offset_top = 10.0
+offset_right = 182.0
+offset_bottom = 32.0
+grow_horizontal = 0
+grow_vertical = 0
 theme_override_styles/panel = ExtResource("2_u6w7x")
 
-[node name="TimeHBox" type="HBoxContainer" parent="TimePanel"]
+[node name="TimeHBox" type="HBoxContainer" parent="Control/TimePanel"]
 layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="Minutes" type="Label" parent="TimePanel/TimeHBox"]
+[node name="Minutes" type="Label" parent="Control/TimePanel/TimeHBox"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("3_xfuhb")
 text = "M:"
 
-[node name="Seconds" type="Label" parent="TimePanel/TimeHBox"]
+[node name="Seconds" type="Label" parent="Control/TimePanel/TimeHBox"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("3_xfuhb")
 text = "Sec"
 
-[node name="ListPanel" type="PanelContainer" parent="."]
-offset_left = 15.0
-offset_top = 15.0
-offset_right = 72.0
-offset_bottom = 44.0
+[node name="ListPanel" type="PanelContainer" parent="Control"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 51.0
+offset_bottom = 36.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_218o0")
 
-[node name="ListVBox" type="VBoxContainer" parent="ListPanel"]
+[node name="ListVBox" type="VBoxContainer" parent="Control/ListPanel"]
 layout_mode = 2
 
-[node name="Potion" type="Label" parent="ListPanel/ListVBox"]
+[node name="Potion" type="Label" parent="Control/ListPanel/ListVBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_xfuhb")
+text = "dfdfd"
+
+[node name="IngrListVBox" type="VBoxContainer" parent="Control/ListPanel/ListVBox"]
 layout_mode = 2
 
-[node name="IngrListVBox" type="VBoxContainer" parent="ListPanel/ListVBox"]
-layout_mode = 2
-
-[node name="Start" type="Control" parent="."]
+[node name="Start" type="Control" parent="Control"]
 visible = false
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="Start"]
+[node name="ColorRect" type="ColorRect" parent="Control/Start"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 320.0
+offset_bottom = 180.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0171, 0.0487983, 0.19, 0.662745)
 
-[node name="Countdown" type="Label" parent="Start"]
+[node name="Countdown" type="Label" parent="Control/Start"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
+offset_left = 123.0
+offset_top = 30.0
+offset_right = 198.0
+offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 180
+theme_override_fonts/font = ExtResource("3_xfuhb")
+theme_override_font_sizes/font_size = 120
+text = "hi"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="GameOverPanel" type="PanelContainer" parent="."]
+[node name="GameOverPanel" type="PanelContainer" parent="Control"]
 visible = false
-anchors_preset = 8
+layout_mode = 1
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = 121.0
+offset_top = 56.0
+offset_right = 199.0
+offset_bottom = 125.0
 grow_horizontal = 2
-grow_vertical = 2
 size_flags_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_1khaw")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="GameOverPanel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/GameOverPanel"]
 layout_mode = 2
 
-[node name="ScoreInfo" type="Label" parent="GameOverPanel/VBoxContainer"]
+[node name="ScoreInfo" type="Label" parent="Control/GameOverPanel/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 22
+theme_override_fonts/font = ExtResource("3_xfuhb")
 text = "Score:
 High Score:"
 
-[node name="RetryButton" type="Button" parent="GameOverPanel/VBoxContainer"]
+[node name="RetryButton" type="Button" parent="Control/GameOverPanel/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
+theme_override_fonts/font = ExtResource("3_xfuhb")
 text = "Retry"
 
-[connection signal="pressed" from="GameOverPanel/VBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="Control/GameOverPanel/VBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]

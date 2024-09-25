@@ -7,7 +7,6 @@ radius = 1.99999
 height = 8.0
 
 [node name="Cauldron" type="StaticBody2D"]
-scale = Vector2(0.5, 0.5)
 collision_layer = 8
 script = ExtResource("1_o44t3")
 

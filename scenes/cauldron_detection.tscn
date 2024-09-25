@@ -16,8 +16,8 @@ texture = ExtResource("1_jenog")
 [node name="Bright" type="Sprite2D" parent="."]
 visible = false
 modulate = Color(1, 1, 1, 0.172549)
-position = Vector2(0, 45.75)
 texture = ExtResource("1_jenog")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_mvid7")
