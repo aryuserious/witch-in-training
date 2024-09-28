@@ -43,15 +43,15 @@ func _on_cauldron_new_potion(potion : Cauldron.Potion):
 		ingredient_types.append(t) # then append that variable to the ingredient types array
 	
 	for ingr_type in ingredient_types: # for every ingr type in the ingredient types array...
-		var label = Label.new() # make a new label...
+		var label := Label.new() # make a new label...
 		label.text = "- " + ingr_type # set the text to the ingredient type... (it'll end up like - Ginger Root, - Throned Rose)
+		label.theme = preload("res://assets/new_theme.tres")
 		ingr_list_vbox.add_child(label) # add the label to the HUD list
 
 
 func _on_player_game_over():
 	get_tree().paused = true
 	$Control/GameOverPanel/VBoxContainer/ScoreInfo.text = "You collected " + str(Global.score) + " potions!" + "\nHigh Score: " + str(Global.high_score)
-
 	$Control/GameOverPanel.visible = true
 
 

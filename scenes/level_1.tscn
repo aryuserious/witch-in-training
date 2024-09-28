@@ -26,6 +26,7 @@ script = ExtResource("1_cltiy")
 
 [node name="Player" parent="." instance=ExtResource("1_iw33g")]
 position = Vector2(156, 89)
+metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 limit_left = -100
@@ -40,11 +41,10 @@ drag_right_margin = 0.5
 drag_bottom_margin = 0.5
 
 [node name="Cauldron" parent="." instance=ExtResource("3_7uji8")]
-position = Vector2(297, 19)
+position = Vector2(260, 107)
 
 [node name="CauldronDetection" parent="." instance=ExtResource("5_42agb")]
-position = Vector2(288, 19)
-scale = Vector2(0.5, 0.5)
+position = Vector2(242, 103)
 
 [node name="Stats" parent="." instance=ExtResource("5_xuif7")]
 visible = false

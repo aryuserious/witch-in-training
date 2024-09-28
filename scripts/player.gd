@@ -3,7 +3,7 @@ class_name Player
 extends CharacterBody2D
 
 
-var speed = 300
+var speed = 125
 
 var ingredients_in_range : Array[Ingredient] # which ingredient is in range
 var current_ingredient : Ingredient # which ingredient is picked up

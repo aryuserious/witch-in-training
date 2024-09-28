@@ -3,22 +3,7 @@
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_41je0"]
 [ext_resource type="StyleBox" uid="uid://cokgb4t6e6ntq" path="res://assets/hud_style_box.tres" id="2_u6w7x"]
 [ext_resource type="FontFile" uid="uid://c16gwq6pp2ep1" path="res://assets/c_c_red_alert_inet/C&C Red Alert [INET].ttf" id="3_xfuhb"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_218o0"]
-bg_color = Color(0.215686, 0.215686, 0.215686, 0.713726)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.8, 0.8, 0.8, 0.815686)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-expand_margin_left = 5.0
-expand_margin_top = 5.0
-expand_margin_right = 10.0
-expand_margin_bottom = 5.0
+[ext_resource type="Theme" uid="uid://dmmknfpxma34n" path="res://assets/new_theme.tres" id="4_f2wms"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1khaw"]
 bg_color = Color(0.55, 0.242, 0.242, 0.713726)
@@ -43,21 +28,22 @@ potion_label = NodePath("Control/ListPanel/ListVBox/Potion")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="TimePanel" type="PanelContainer" parent="Control"]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 139.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -21.5
 offset_top = 10.0
-offset_right = 182.0
+offset_right = 21.5
 offset_bottom = 32.0
-grow_horizontal = 0
-grow_vertical = 0
+grow_horizontal = 2
 theme_override_styles/panel = ExtResource("2_u6w7x")
 
 [node name="TimeHBox" type="HBoxContainer" parent="Control/TimePanel"]
@@ -76,18 +62,21 @@ theme_override_fonts/font = ExtResource("3_xfuhb")
 text = "Sec"
 
 [node name="ListPanel" type="PanelContainer" parent="Control"]
+layout_mode = 0
 offset_left = 10.0
 offset_top = 10.0
 offset_right = 51.0
 offset_bottom = 36.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_218o0")
+theme_override_styles/panel = ExtResource("2_u6w7x")
 
 [node name="ListVBox" type="VBoxContainer" parent="Control/ListPanel"]
 layout_mode = 2
 
 [node name="Potion" type="Label" parent="Control/ListPanel/ListVBox"]
 layout_mode = 2
+theme = ExtResource("4_f2wms")
 theme_override_fonts/font = ExtResource("3_xfuhb")
+theme_override_font_sizes/font_size = 13
 text = "dfdfd"
 
 [node name="IngrListVBox" type="VBoxContainer" parent="Control/ListPanel/ListVBox"]
@@ -107,8 +96,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 320.0
-offset_bottom = 180.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0171, 0.0487983, 0.19, 0.662745)
@@ -120,10 +107,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 123.0
-offset_top = 30.0
-offset_right = 198.0
-offset_bottom = 150.0
+offset_left = -37.5
+offset_top = -60.0
+offset_right = 37.5
+offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -136,14 +123,17 @@ vertical_alignment = 1
 [node name="GameOverPanel" type="PanelContainer" parent="Control"]
 visible = false
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = 121.0
-offset_top = 56.0
-offset_right = 199.0
-offset_bottom = 125.0
+anchor_bottom = 0.5
+offset_left = -39.0
+offset_top = -34.5
+offset_right = 39.0
+offset_bottom = 34.5
 grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_1khaw")
 
