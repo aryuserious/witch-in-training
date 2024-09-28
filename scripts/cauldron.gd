@@ -108,11 +108,11 @@ func _on_player_try_ingredient(ingredient : Ingredient, type : Ingredient.type):
 	
 	# if it is the last ingredient needed in the potion
 	if needed_ingredient_types.size() == 0:
-		print("You completed a potion")
+		print("You completed a potion!")
 		Global.score += 1
 		Global.difficulty += 1
 		select_potion()
-		game_time.start(ceil(game_time.time_left) + Global.difficulty ) # start the game time over, with the wait time being the current time + 10 secs
+		game_time.start(ceil(game_time.time_left) + 15/Global.difficulty ) # start the game time over, with the wait time being the current time + some time
 
 
 func _on_detection_body_entered(body:Node2D):

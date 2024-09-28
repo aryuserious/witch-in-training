@@ -7,5 +7,5 @@ var score : int = 0
 
 
 func _process(_delta):
-    if score > high_score:
-        high_score = score
+	if score > high_score:
+		high_score = score

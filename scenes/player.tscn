@@ -8,7 +8,7 @@ radius = 2.0
 height = 16.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7ixw2"]
-radius = 26.0192
+radius = 20.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -31,7 +31,7 @@ collision_layer = 16
 collision_mask = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
-position = Vector2(0, 43.25)
+position = Vector2(0, 44.25)
 shape = SubResource("CircleShape2D_7ixw2")
 
 [node name="HandPosition" type="Node2D" parent="."]

@@ -17,8 +17,9 @@ var ingredient_regions = { # the number that is the key matches with the value o
 
 func _ready():
 	# random location
-	var x = randi_range(100, 500)
-	var y = randi_range(30, 400)
+	# TODO: make the spawn locations based on difficulty and make it based on distance from player
+	var x = randi_range(100, 400)
+	var y = randi_range(30, 300)
 	global_position = Vector2(x, y)
 
 	# set sprite based off type

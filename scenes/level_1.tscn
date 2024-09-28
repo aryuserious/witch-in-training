@@ -25,7 +25,7 @@ y_sort_enabled = true
 script = ExtResource("1_cltiy")
 
 [node name="Player" parent="." instance=ExtResource("1_iw33g")]
-position = Vector2(262, 145)
+position = Vector2(249, 139)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
