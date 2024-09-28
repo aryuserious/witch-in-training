@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxg1rh7mqq515"]
+[gd_scene load_steps=7 format=3 uid="uid://bxg1rh7mqq515"]
 
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_41je0"]
 [ext_resource type="StyleBox" uid="uid://cokgb4t6e6ntq" path="res://assets/hud_style_box.tres" id="2_u6w7x"]
@@ -19,6 +19,23 @@ corner_radius_bottom_left = 2
 expand_margin_left = 3.0
 expand_margin_top = 3.0
 expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v7713"]
+bg_color = Color(0.215686, 0.215686, 0.215686, 0.713726)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8, 0.8, 0.8, 0.815686)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_left = 8.0
+expand_margin_top = 5.0
+expand_margin_right = 8.0
 expand_margin_bottom = 5.0
 anti_aliasing = false
 
@@ -149,7 +166,11 @@ High Score:"
 
 [node name="RetryButton" type="Button" parent="Control/GameOverPanel/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("3_xfuhb")
+theme_override_styles/normal = ExtResource("2_u6w7x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v7713")
+theme_override_styles/pressed = ExtResource("2_u6w7x")
 text = "Retry"
 
 [connection signal="pressed" from="Control/GameOverPanel/VBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
