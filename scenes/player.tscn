@@ -35,7 +35,7 @@ position = Vector2(0, 43.25)
 shape = SubResource("CircleShape2D_7ixw2")
 
 [node name="HandPosition" type="Node2D" parent="."]
-position = Vector2(-14, -29.25)
+position = Vector2(-7, -8)
 
 [connection signal="area_entered" from="Detection" to="." method="_on_detection_area_entered"]
 [connection signal="area_exited" from="Detection" to="." method="_on_detection_area_exited"]

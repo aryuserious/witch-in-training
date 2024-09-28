@@ -25,7 +25,7 @@ y_sort_enabled = true
 script = ExtResource("1_cltiy")
 
 [node name="Player" parent="." instance=ExtResource("1_iw33g")]
-position = Vector2(467, 261)
+position = Vector2(262, 145)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -41,10 +41,10 @@ drag_right_margin = 0.5
 drag_bottom_margin = 0.5
 
 [node name="Cauldron" parent="." instance=ExtResource("3_7uji8")]
-position = Vector2(571, 279)
+position = Vector2(378, 161)
 
 [node name="CauldronDetection" parent="." instance=ExtResource("5_42agb")]
-position = Vector2(553, 275)
+position = Vector2(360, 157)
 
 [node name="Stats" parent="." instance=ExtResource("5_xuif7")]
 visible = false
