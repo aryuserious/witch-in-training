@@ -27,7 +27,6 @@ func _on_cauldron_new_potion(potion : Cauldron.Potion):
 			i = i as Ingredient
 			i.ingredient_type = ingr_type
 			add_child(i)
-			print("necessary ingredient made")
 	
 	# spawn extra ingredients
 	var num_of_extra_ingrs = randi_range(1, 5)
@@ -35,7 +34,6 @@ func _on_cauldron_new_potion(potion : Cauldron.Potion):
 		var ei = ingr_scene.instantiate() as Ingredient # ei is extra ingredient
 		ei.ingredient_type = randi_range(0, Ingredient.type.size() - 1) # choose a random ingredient
 		add_child(ei)
-		print("extra ingredient made")
 	
 	print("new potion")
 	print("potion is ", potion.effect)

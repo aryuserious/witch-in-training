@@ -3,7 +3,7 @@ class_name Player
 extends CharacterBody2D
 
 
-var speed = 125
+var speed = 60
 
 var ingredients_in_range : Array[Ingredient] # which ingredient is in range
 var current_ingredient : Ingredient # which ingredient is picked up
@@ -29,12 +29,6 @@ func _physics_process(_delta):
 			drop_ingredient()
 		elif cauldron.player_in_range == true:
 			try_ingredient.emit(current_ingredient, current_ingredient.ingredient_type)
-			# cauldron.current_ingredients.append(current_ingredient) # add the ingr the player is holding to the ingrs in the cauldron
-			# # the ingr is gone because it is now in the cauldron
-			# var collision = current_ingredient.get_node("Collision") as CollisionShape2D
-			# collision.set_deferred("disabled", true)
-			# current_ingredient.visible = false
-			# current_ingredient = null 
 	
 	if current_ingredient:
 		# ingredient looks like its being held by the player
@@ -50,12 +44,12 @@ func move():
 func pickup_ingredient():
 	current_ingredient = nearest_ingredient()
 	# ingredient becomes smaller to look like its being held
-	current_ingredient.scale = Vector2(0.75, 0.75)
+	current_ingredient.scale = Vector2(0.5, 0.5)
 
 
 func drop_ingredient():
 	# ingredient looks like its being dropped
-	current_ingredient.position.y += 20
+	current_ingredient.position.y += 10
 	current_ingredient.scale = Vector2(1, 1)
 	
 	current_ingredient = null

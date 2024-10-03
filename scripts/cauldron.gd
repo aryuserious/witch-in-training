@@ -112,7 +112,7 @@ func _on_player_try_ingredient(ingredient : Ingredient, type : Ingredient.type):
 		Global.score += 1
 		Global.difficulty += 1
 		select_potion()
-		game_time.start(ceil(game_time.time_left) + 15/Global.difficulty ) # start the game time over, with the wait time being the current time + some time
+		game_time.start(ceil(game_time.time_left) + 25/Global.difficulty ) # start the game time over, with the wait time being the current time + some time
 
 
 func _on_detection_body_entered(body:Node2D):

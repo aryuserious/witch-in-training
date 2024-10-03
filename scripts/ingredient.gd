@@ -2,18 +2,27 @@ class_name Ingredient
 
 extends Area2D
 
-enum type { GINGER_ROOT, PEPPERMINT_CANDY, THORNED_ROSE, HONEY, LEECH, SALT, CAT_HAIR }
+enum type { GINGER_ROOT, PEPPERMINT_CANDY, THORNED_ROSE, HONEY, LEECH, SALT, CAT_WHISKER }
 @export var ingredient_type : type
 var ingredient_regions = { # the number that is the key matches with the value of each enum element
-	0: Rect2(16, 0, 8, 8),
-	1: Rect2(8, 0, 8, 8),
-	2: Rect2(24, 0, 8, 8),
-	3: Rect2(40, 0, 8, 8),
-	4: Rect2(48, 0, 8, 8),
-	5: Rect2(0, 0, 8, 8),
-	6: Rect2(32, 0, 8, 8)
+	0: Rect2(16, 0, 8, 8), # Ginger Root
+	1: Rect2(8, 0, 8, 8), # Peppermint Candy
+	2: Rect2(24, 0, 8, 8), # Thorned Rose
+	3: Rect2(40, 0, 8, 8), # Honey
+	4: Rect2(48, 0, 8, 8), # Leech
+	5: Rect2(0, 0, 8, 8), # Salt
+	6: Rect2(32, 0, 8, 8) # Cat Whisker
 }
 
+var outlined_ingredient_regions = { # the number that is the key matches with the value of each enum element
+	0: Rect2(21, 0, 10, 10), # Ginger Root
+	1: Rect2(11, 0, 9, 10), # Peppermint Candy
+	2: Rect2(31, 0, 10, 10), # Thorned Rose
+	3: Rect2(50, 0, 11, 10), # Honey
+	4: Rect2(61, 0, 9, 10), # Leech
+	5: Rect2(0, 0, 10, 10), # Salt
+	6: Rect2(41, 0, 9, 10) # Cat Hair
+}
 
 func _ready():
 	# random location
@@ -65,8 +74,8 @@ static func ingredient_type_as_string(ingr_type : Ingredient.type) -> String:
 				return "Leech"
 			Ingredient.type.SALT:
 				return "Salt"
-			Ingredient.type.CAT_HAIR:
-				return "Cat Hair"
+			Ingredient.type.CAT_WHISKER:
+				return "Cat Whisker"
 			_:
 				return "???"
 	else:

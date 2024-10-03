@@ -24,6 +24,12 @@ size = Vector2(992, 8)
 y_sort_enabled = true
 script = ExtResource("1_cltiy")
 
+[node name="Cauldron" parent="." instance=ExtResource("3_7uji8")]
+position = Vector2(287, 116)
+
+[node name="CauldronDetection" parent="." instance=ExtResource("5_42agb")]
+position = Vector2(269, 112)
+
 [node name="Player" parent="." instance=ExtResource("1_iw33g")]
 position = Vector2(158, 94)
 metadata/_edit_group_ = true
@@ -39,12 +45,6 @@ drag_left_margin = 0.5
 drag_top_margin = 0.3
 drag_right_margin = 0.5
 drag_bottom_margin = 0.5
-
-[node name="Cauldron" parent="." instance=ExtResource("3_7uji8")]
-position = Vector2(287, 116)
-
-[node name="CauldronDetection" parent="." instance=ExtResource("5_42agb")]
-position = Vector2(269, 112)
 
 [node name="Stats" parent="." instance=ExtResource("5_xuif7")]
 visible = false
@@ -129,7 +129,7 @@ texture = ExtResource("7_jy1q0")
 wait_time = 20.0
 one_shot = true
 
-[connection signal="game_over" from="Player" to="HUD" method="_on_player_game_over"]
 [connection signal="body_entered" from="CauldronDetection" to="Cauldron" method="_on_detection_body_entered"]
 [connection signal="body_exited" from="CauldronDetection" to="Cauldron" method="_on_detection_body_exited"]
+[connection signal="game_over" from="Player" to="HUD" method="_on_player_game_over"]
 [connection signal="timeout" from="GameTime" to="Player" method="_on_game_time_timeout"]

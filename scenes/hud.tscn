@@ -95,7 +95,6 @@ layout_mode = 2
 theme = ExtResource("4_f2wms")
 theme_override_fonts/font = ExtResource("3_xfuhb")
 theme_override_font_sizes/font_size = 13
-text = "dfdfd"
 
 [node name="IngrListVBox" type="VBoxContainer" parent="Control/ListPanel/ListVBox"]
 layout_mode = 2

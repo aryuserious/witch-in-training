@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://bvhfiq6j5dr6i"]
 
 [ext_resource type="Script" path="res://scripts/ingredient.gd" id="1_vuxb1"]
-[ext_resource type="Texture2D" uid="uid://d3v77sveuc4qg" path="res://assets/ingredients.png" id="2_a7wxe"]
+[ext_resource type="Texture2D" uid="uid://d3v77sveuc4qg" path="res://assets/ingredients.png" id="2_gviio"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cxheu"]
-radius = 11.0454
+radius = 6.0
 
 [node name="Ingredient" type="Area2D"]
 z_index = 5
@@ -13,7 +13,7 @@ collision_mask = 0
 script = ExtResource("1_vuxb1")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_a7wxe")
+texture = ExtResource("2_gviio")
 region_enabled = true
 region_rect = Rect2(16, 0, 8, 8)
 
