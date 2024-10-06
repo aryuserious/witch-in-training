@@ -15,7 +15,7 @@ script = ExtResource("1_vuxb1")
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_gviio")
 region_enabled = true
-region_rect = Rect2(16, 0, 8, 8)
+region_rect = Rect2(19, 0, 10, 10)
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_cxheu")

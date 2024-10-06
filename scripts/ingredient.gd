@@ -2,16 +2,16 @@ class_name Ingredient
 
 extends Area2D
 
-enum type { GINGER_ROOT, PEPPERMINT_CANDY, THORNED_ROSE, HONEY, LEECH, SALT, CAT_WHISKER }
+enum type { GINGER_ROOT, PEPPERMINT_CANDY, THORNED_ROSE, HONEYCOMB, LEECH, SALT, CAT_WHISKER }
 @export var ingredient_type : type
 var ingredient_regions = { # the number that is the key matches with the value of each enum element
-	0: Rect2(16, 0, 8, 8), # Ginger Root
-	1: Rect2(8, 0, 8, 8), # Peppermint Candy
-	2: Rect2(24, 0, 8, 8), # Thorned Rose
-	3: Rect2(40, 0, 8, 8), # Honey
-	4: Rect2(48, 0, 8, 8), # Leech
-	5: Rect2(0, 0, 8, 8), # Salt
-	6: Rect2(32, 0, 8, 8) # Cat Whisker
+	0: Rect2(19, 0, 10, 10), # Ginger Root
+	1: Rect2(10, 0, 9, 10), # Peppermint Candy
+	2: Rect2(29, 0, 10, 10), # Thorned Rose
+	3: Rect2(48, 0, 10, 10), # Honeycomb
+	4: Rect2(58, 0, 8, 10), # Leech
+	5: Rect2(0, 0, 10, 10), # Salt
+	6: Rect2(39, 0, 9, 10) # Cat Whisker
 }
 
 var outlined_ingredient_regions = { # the number that is the key matches with the value of each enum element
@@ -68,8 +68,8 @@ static func ingredient_type_as_string(ingr_type : Ingredient.type) -> String:
 				return "Peppermint Candy"
 			Ingredient.type.THORNED_ROSE:
 				return "Thorned Rose"
-			Ingredient.type.HONEY:
-				return "Honey"
+			Ingredient.type.HONEYCOMB:
+				return "Honeycomb"
 			Ingredient.type.LEECH:
 				return "Leech"
 			Ingredient.type.SALT:

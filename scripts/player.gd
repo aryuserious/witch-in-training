@@ -3,6 +3,11 @@ class_name Player
 extends CharacterBody2D
 
 
+@export var anim : AnimationPlayer
+@export var sprite : Sprite2D
+
+enum {FRONT, BACK, LEFT, RIGHT}
+var direction
 var speed = 60
 
 var ingredients_in_range : Array[Ingredient] # which ingredient is in range
@@ -36,9 +41,50 @@ func _physics_process(_delta):
 
 
 func move():
-	var dir = Input.get_vector("left", "right", "up", "down")
-	velocity = dir * speed
+	var input_vector = Input.get_vector("left", "right", "up", "down")
+	velocity = input_vector * speed
 	move_and_slide()
+	
+	match input_vector:
+		Vector2(0, 1), Vector2(-1, 1), Vector2(1, 1):
+			direction = FRONT
+		Vector2(0, -1), Vector2(-1, -1), Vector2(1, -1):
+			direction = BACK
+		Vector2(-1, 0):
+			direction = LEFT
+		Vector2(1, 0):
+			direction = RIGHT
+		null:
+			print("not moving")
+		
+	animate(direction, input_vector) # if we aren't moving, input_vector will be null
+
+
+func animate(dir, moving):
+	match dir:
+		FRONT:
+			if moving:
+				anim.play("front_walk")
+			else:
+				anim.play("front_idle")
+		BACK:
+			if moving:
+				anim.play("back_walk")
+			else:
+				anim.play("back_idle")
+		_:
+			anim.stop()
+		#LEFT:
+			#if moving:
+				#anim.play("left_walk")
+			#else:
+				#anim.play("left_idle")
+		#RIGHT:
+			#if moving:
+				#anim.play("right_walk")
+			#else:
+				#anim.play("right_idle")
+		
 
 
 func pickup_ingredient():
