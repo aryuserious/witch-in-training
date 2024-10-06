@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bvhfiq6j5dr6i" path="res://scenes/ingredient.tscn" id="1_c74da"]
 [ext_resource type="Script" path="res://scenes/test_node.gd" id="1_xlv40"]
-[ext_resource type="TileSet" uid="uid://clo1452sdx3d5" path="res://assets/tileset.tres" id="3_s7l13"]
+[ext_resource type="TileSet" uid="uid://clo1452sdx3d5" path="res://resources/tileset.tres" id="3_s7l13"]
 
 [node name="Test" type="Node2D"]
 

@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://dm6blvkae22g4"
-path="res://.godot/imported/C&C Red Alert [LAN].ttf-38482fb2ed1599101dfd62176bda94d6.fontdata"
+path="res://.godot/imported/C&C Red Alert [LAN].ttf-e94e57f55d6fc866bcbe6d3e765e1a1c.fontdata"
 
 [deps]
 
-source_file="res://assets/c_c_red_alert_inet/C&C Red Alert [LAN].ttf"
-dest_files=["res://.godot/imported/C&C Red Alert [LAN].ttf-38482fb2ed1599101dfd62176bda94d6.fontdata"]
+source_file="res://resources/c_c_red_alert_inet/C&C Red Alert [LAN].ttf"
+dest_files=["res://.godot/imported/C&C Red Alert [LAN].ttf-e94e57f55d6fc866bcbe6d3e765e1a1c.fontdata"]
 
 [params]
 

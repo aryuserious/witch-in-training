@@ -39,6 +39,8 @@ func _physics_process(_delta):
 	if current_ingredient:
 		# ingredient looks like its being held by the player
 		current_ingredient.position = $HandPosition.global_position
+		current_ingredient.z_index = -1 if direction == BACK or direction == LEFT else 1
+		
 
 
 func move():

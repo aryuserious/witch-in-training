@@ -1,10 +1,10 @@
 [gd_resource type="TileSet" load_steps=5 format=3 uid="uid://clo1452sdx3d5"]
 
-[ext_resource type="Texture2D" uid="uid://datwpaikfptjn" path="res://assets/wallTileset.png" id="1_v15ad"]
-[ext_resource type="Texture2D" uid="uid://c5dg23q6ie2ok" path="res://assets/idea space.png" id="2_glnty"]
+[ext_resource type="Texture2D" uid="uid://datwpaikfptjn" path="res://art/wallTileset.png" id="1_5cn5o"]
+[ext_resource type="Texture2D" uid="uid://c5dg23q6ie2ok" path="res://art/idea space.png" id="2_0ofvx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n5umb"]
-texture = ExtResource("1_v15ad")
+texture = ExtResource("1_5cn5o")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -24,7 +24,7 @@ texture = ExtResource("1_v15ad")
 0:2/0 = 0
 0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:2/0/physics_layer_0/angular_velocity = 0.0
-0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -2.6875, 8, -2.74004, 8, 8, -8, 8)
 1:2/0 = 0
 1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:2/0/physics_layer_0/angular_velocity = 0.0
@@ -51,7 +51,7 @@ texture = ExtResource("1_v15ad")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_obhxq"]
 resource_name = "floor"
-texture = ExtResource("2_glnty")
+texture = ExtResource("2_0ofvx")
 14:1/0 = 0
 14:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 14:1/0/physics_layer_0/angular_velocity = 0.0

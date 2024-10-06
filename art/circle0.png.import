@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://datwpaikfptjn"
-path="res://.godot/imported/wallTileset.png-ecd2dd575cb3d6ffb662e8df1fa9730f.ctex"
+uid="uid://lg0dk8lf2dn4"
+path="res://.godot/imported/circle0.png-ca2e904fd28c203e78f3dddfec82c4f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/wallTileset.png"
-dest_files=["res://.godot/imported/wallTileset.png-ecd2dd575cb3d6ffb662e8df1fa9730f.ctex"]
+source_file="res://art/circle0.png"
+dest_files=["res://.godot/imported/circle0.png-ca2e904fd28c203e78f3dddfec82c4f8.ctex"]
 
 [params]
 
