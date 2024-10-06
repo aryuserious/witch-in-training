@@ -11,6 +11,7 @@ z_index = 5
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_vuxb1")
+spawn_area = Rect2(20, 85, 296, 155)
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_gviio")
