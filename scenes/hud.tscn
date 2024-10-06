@@ -169,7 +169,8 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("3_xfuhb")
 theme_override_styles/normal = ExtResource("2_u6w7x")
 theme_override_styles/hover = SubResource("StyleBoxFlat_v7713")
-theme_override_styles/pressed = ExtResource("2_u6w7x")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_v7713")
+theme_override_styles/focus = SubResource("StyleBoxFlat_v7713")
 text = "Retry"
 
 [connection signal="pressed" from="Control/GameOverPanel/VBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]

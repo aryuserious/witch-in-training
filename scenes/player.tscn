@@ -51,6 +51,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_4lv8n"]
 resource_name = "back_idle"
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -78,6 +79,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_se7h6"]
 resource_name = "front_idle"
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true

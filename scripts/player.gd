@@ -8,6 +8,7 @@ extends CharacterBody2D
 
 enum {FRONT, BACK, LEFT, RIGHT}
 var direction
+var normal_vector : Vector2
 var speed = 60
 
 var ingredients_in_range : Array[Ingredient] # which ingredient is in range
@@ -45,7 +46,10 @@ func move():
 	velocity = input_vector * speed
 	move_and_slide()
 	
-	match input_vector:
+	var is_moving = true
+	normal_vector = round(input_vector)
+	
+	match normal_vector:
 		Vector2(0, 1), Vector2(-1, 1), Vector2(1, 1):
 			direction = FRONT
 		Vector2(0, -1), Vector2(-1, -1), Vector2(1, -1):
@@ -54,10 +58,10 @@ func move():
 			direction = LEFT
 		Vector2(1, 0):
 			direction = RIGHT
-		null:
-			print("not moving")
+		Vector2(0, 0):
+			is_moving = false
 		
-	animate(direction, input_vector) # if we aren't moving, input_vector will be null
+	animate(direction, is_moving) # if we aren't moving, input_vector will be null
 
 
 func animate(dir, moving):
@@ -72,19 +76,16 @@ func animate(dir, moving):
 				anim.play("back_walk")
 			else:
 				anim.play("back_idle")
-		_:
-			anim.stop()
-		#LEFT:
-			#if moving:
-				#anim.play("left_walk")
-			#else:
-				#anim.play("left_idle")
-		#RIGHT:
-			#if moving:
-				#anim.play("right_walk")
-			#else:
-				#anim.play("right_idle")
-		
+		LEFT:
+			if moving:
+				anim.play("left_idle")
+			else:
+				anim.play("left_idle")
+		RIGHT:
+			if moving:
+				anim.play("right_idle")
+			else:
+				anim.play("right_idle")
 
 
 func pickup_ingredient():
