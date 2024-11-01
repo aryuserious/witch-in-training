@@ -13,7 +13,7 @@ var player_in_range : bool = false
 @onready var player : Player = get_node("../Player") as Player # . self ./ self ../ parent ../Node sibling
 
 @onready var detection = get_parent().get_node("CauldronDetection")
-@onready var game_time = get_node("../GameTime") as Timer
+@onready var game_time = get_tree().get_first_node_in_group("game_timer") as Timer
 
 var potions : Array[Potion] = [
 	Potion.new( [
@@ -100,15 +100,9 @@ func _on_player_try_ingredient(ingredient : Ingredient, type : Ingredient.type):
 		current_ingredients_types.append(type)
 		update_needed_ingredients(type)
 		accept_ingredient.emit(ingredient)
-	else:
-		print("You don't need that ingredient")
-		for nit in needed_ingredient_types:
-			print("You need ", Ingredient.ingredient_type_as_string(nit))
-		print("But you tried to put a(n)", Ingredient.ingredient_type_as_string(type))
 	
 	# if it is the last ingredient needed in the potion
 	if needed_ingredient_types.size() == 0:
-		print("You completed a potion!")
 		Global.score += 1
 		Global.difficulty += 1
 		select_potion()

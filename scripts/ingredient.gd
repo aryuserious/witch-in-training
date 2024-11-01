@@ -2,7 +2,6 @@ class_name Ingredient
 
 extends Area2D
 
-@export var spawn_area : Rect2
 
 enum type { GINGER_ROOT, PEPPERMINT_CANDY, THORNED_ROSE, HONEYCOMB, LEECH, SALT, CAT_WHISKER }
 @export var ingredient_type : type
@@ -28,18 +27,10 @@ var outlined_ingredient_regions = { # the number that is the key matches with th
 
 func _ready():
 	# random location
-	# TODO: make the spawn locations based on difficulty and make it based on distance from player
-	var x = randi_range(spawn_area.position.x, spawn_area.size.x)
-	var y = randi_range(spawn_area.position.y, spawn_area.size.y)
-	global_position = Vector2(x, y)
+	position = Global.random_spawn()
 
 	# set sprite based off type
 	set_sprite_region(ingredient_type)
-	#print("ingredient made")
-
-
-func _process(delta):
-	Global.spawn_area = spawn_area
 
 
 static func create(ingr_type : type) -> Ingredient:

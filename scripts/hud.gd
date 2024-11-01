@@ -45,7 +45,7 @@ func _on_cauldron_new_potion(potion : Cauldron.Potion):
 	for ingr_type in ingredient_types: # for every ingr type in the ingredient types array...
 		var label := Label.new() # make a new label...
 		label.text = "- " + ingr_type # set the text to the ingredient type... (it'll end up like - Ginger Root, - Throned Rose)
-		label.theme = preload("res://resources/new_theme.tres")
+		label.theme = preload("res://assets/resources/new_theme.tres")
 		ingr_list_vbox.add_child(label) # add the label to the HUD list
 
 

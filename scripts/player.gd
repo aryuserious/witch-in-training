@@ -112,6 +112,9 @@ func _on_cauldron_accepted_ingredient(ingr : Ingredient):
 func _on_detection_area_entered(area:Area2D):
 	if area is Ingredient:
 		ingredients_in_range.append(area) # add the ingredient to the array
+	elif area is PowerUp:
+		area.activate()
+		print("power up activated")
 
 
 func _on_detection_area_exited(area:Area2D):

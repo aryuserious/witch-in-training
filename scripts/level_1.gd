@@ -4,6 +4,7 @@ extends Node2D
 
 
 var ingr_scene = preload("res://scenes/ingredient.tscn")
+var pu_scene = preload("res://scenes/power_up.tscn")
 @onready var cauldron = $Cauldron as Cauldron
 @onready var start_timer = $StartTimer as Timer
 
@@ -34,7 +35,11 @@ func _on_cauldron_new_potion(potion : Cauldron.Potion):
 		var ei = ingr_scene.instantiate() as Ingredient # ei is extra ingredient
 		ei.ingredient_type = randi_range(0, Ingredient.type.size() - 1) # choose a random ingredient
 		add_child(ei)
-	
-	print("new potion")
-	print("potion is ", potion.effect)
-	print("this potion has ", potion.ingredient_types.size(), " ingredients")
+		
+	# possibly spawn powerup if it's not the first round
+	if Global.difficulty > 0:
+		var num = randf()
+		if num < 0.80: # 10% chance
+			var pu = pu_scene.instantiate()
+			add_child(pu)
+		print(num)

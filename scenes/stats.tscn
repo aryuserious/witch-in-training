@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c6uq1yph8uswp"]
 
 [ext_resource type="Script" path="res://scripts/stats.gd" id="1_nvkja"]
-[ext_resource type="FontFile" uid="uid://c16gwq6pp2ep1" path="res://resources/c_c_red_alert_inet/C&C Red Alert [INET].ttf" id="2_nccft"]
+[ext_resource type="FontFile" uid="uid://c16gwq6pp2ep1" path="res://assets/resources/c_c_red_alert_inet/C&C Red Alert [INET].ttf" id="2_nccft"]
 
 [node name="Stats" type="CanvasLayer"]
 script = ExtResource("1_nvkja")
