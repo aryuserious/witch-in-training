@@ -1,5 +1,4 @@
 class_name HUD
-
 extends CanvasLayer
 
 
@@ -51,7 +50,7 @@ func _on_cauldron_new_potion(potion : Cauldron.Potion):
 
 func _on_player_game_over():
 	get_tree().paused = true
-	$Control/GameOverPanel/VBoxContainer/ScoreInfo.text = "You collected " + str(Global.score) + " potions!" + "\nHigh Score: " + str(Global.high_score)
+	$Control/GameOverPanel/VBoxContainer/ScoreInfo.text = "You made " + str(Global.score) + " potions!" + "\nHigh Score: " + str(Global.high_score)
 	$Control/GameOverPanel.visible = true
 
 

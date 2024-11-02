@@ -21,5 +21,6 @@ position = Vector2(0, 8)
 texture = ExtResource("1_jenog")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 8)
 shape = SubResource("CircleShape2D_mvid7")

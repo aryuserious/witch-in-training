@@ -1,11 +1,10 @@
 class_name Ingredient
-
 extends Area2D
 
 
 enum type { GINGER_ROOT, PEPPERMINT_CANDY, THORNED_ROSE, HONEYCOMB, LEECH, SALT, CAT_WHISKER }
 @export var ingredient_type : type
-var ingredient_regions = { # the number that is the key matches with the value of each enum element
+var ingredient_regions : Dictionary = { # the number that is the key matches with the value of each enum element
 	0: Rect2(19, 0, 10, 10), # Ginger Root
 	1: Rect2(10, 0, 9, 10), # Peppermint Candy
 	2: Rect2(29, 0, 10, 10), # Thorned Rose
@@ -15,15 +14,6 @@ var ingredient_regions = { # the number that is the key matches with the value o
 	6: Rect2(39, 0, 9, 10) # Cat Whisker
 }
 
-var outlined_ingredient_regions = { # the number that is the key matches with the value of each enum element
-	0: Rect2(21, 0, 10, 10), # Ginger Root
-	1: Rect2(11, 0, 9, 10), # Peppermint Candy
-	2: Rect2(31, 0, 10, 10), # Thorned Rose
-	3: Rect2(50, 0, 11, 10), # Honey
-	4: Rect2(61, 0, 9, 10), # Leech
-	5: Rect2(0, 0, 10, 10), # Salt
-	6: Rect2(41, 0, 9, 10) # Cat Hair
-}
 
 func _ready():
 	# random location
@@ -41,19 +31,6 @@ static func create(ingr_type : type) -> Ingredient:
 
 func set_sprite_region(ingr_type):
 	$Sprite.region_rect = ingredient_regions[ingr_type]
-	#match ingredient_type:
-		#type.GINGER_ROOT:
-			#if has_node("Sprite"):
-				#$Sprite.region_rect = ingredient_regions["ginger root"]
-		#type.PEPPERMINT_CANDY:
-			#if has_node("Sprite"):
-				#$Sprite.region_rect = ingredient_regions["peppermint candy"]
-		#type.THORNED_ROSE:
-			#if has_node("Sprite"):
-				#$Sprite.region_rect = ingredient_regions["thorned rose"]
-		#type.SALT:
-			#if has_node("Sprite"):
-				#$Sprite.region_rect = ingredient_regions["salt"]
 
 
 static func ingredient_type_as_string(ingr_type : Ingredient.type) -> String:

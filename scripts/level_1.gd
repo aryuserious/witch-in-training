@@ -1,5 +1,4 @@
 class_name Level
-
 extends Node2D
 
 
@@ -39,7 +38,7 @@ func _on_cauldron_new_potion(potion : Cauldron.Potion):
 	# possibly spawn powerup if it's not the first round
 	if Global.difficulty > 0:
 		var num = randf()
-		if num < 0.80: # 10% chance
+		if num < 0.25: # 25% chance
 			var pu = pu_scene.instantiate()
 			add_child(pu)
 		print(num)

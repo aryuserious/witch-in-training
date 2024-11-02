@@ -1,5 +1,4 @@
 class_name Cauldron
-
 extends StaticBody2D
 
 
@@ -12,7 +11,7 @@ var current_ingredients_types : Array[Ingredient.type] # the ingrs that are in t
 var player_in_range : bool = false
 @onready var player : Player = get_node("../Player") as Player # . self ./ self ../ parent ../Node sibling
 
-@onready var detection = get_parent().get_node("CauldronDetection")
+@onready var detection  = get_parent().get_node("CauldronDetection")
 @onready var game_time = get_tree().get_first_node_in_group("game_timer") as Timer
 
 var potions : Array[Potion] = [
@@ -64,12 +63,12 @@ func select_potion():
 	new_potion.emit(current_potion)
 
 
-func update_needed_ingredients(ingr_type : Ingredient.type):
-	if ingr_type in needed_ingredient_types:
-		needed_ingredient_types.erase(ingr_type)
+func update_needed_ingredient_types(ingr_type : Ingredient.type):
+	if ingr_type in needed_ingredient_types: # we no longer need the ingredient type
+		needed_ingredient_types.erase(ingr_type) # so remove it
 
 
-func all_ingrs_are_required() -> bool: # does nothing rn
+func all_ingrs_are_required() -> bool: # does nothing rn, not being used
 	return true
 	# var ingrs_req_status : Array[bool] = [] # if first ingr is required and the last 2 are not, array is [true, false, false]
 	# # (describe here)
@@ -98,8 +97,8 @@ func all_ingrs_are_required() -> bool: # does nothing rn
 func _on_player_try_ingredient(ingredient : Ingredient, type : Ingredient.type):
 	if type in needed_ingredient_types:
 		current_ingredients_types.append(type)
-		update_needed_ingredients(type)
-		accept_ingredient.emit(ingredient)
+		update_needed_ingredient_types(type) # removes the type from the array
+		accept_ingredient.emit(ingredient) # let the player know to stop holding the ingredient and remove it from the scene
 	
 	# if it is the last ingredient needed in the potion
 	if needed_ingredient_types.size() == 0:

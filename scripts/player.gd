@@ -50,15 +50,15 @@ func move():
 	normal_vector = round(input_vector)
 	
 	match normal_vector:
-		Vector2(0, 1), Vector2(-1, 1), Vector2(1, 1):
+		Vector2i(0, 1), Vector2i(-1, 1), Vector2i(1, 1):
 			direction = FRONT
-		Vector2(0, -1), Vector2(-1, -1), Vector2(1, -1):
+		Vector2i(0, -1), Vector2i(-1, -1), Vector2i(1, -1):
 			direction = BACK
-		Vector2(-1, 0):
+		Vector2i(-1, 0):
 			direction = LEFT
-		Vector2(1, 0):
+		Vector2i(1, 0):
 			direction = RIGHT
-		Vector2(0, 0):
+		Vector2i(0, 0):
 			is_moving = false
 		
 	animate(direction, is_moving) # if we aren't moving, input_vector will be null
@@ -112,7 +112,7 @@ func _on_detection_area_entered(area:Area2D):
 		ingredients_in_range.append(area) # add the ingredient to the array
 	elif area is PowerUp:
 		area.activate()
-		print("power up activated")
+
 
 
 func _on_detection_area_exited(area:Area2D):
@@ -122,7 +122,7 @@ func _on_detection_area_exited(area:Area2D):
 
 func nearest_ingredient() -> Ingredient:
 	var first_loop = true
-	var nearest_ingr
+	var nearest_ingr : Ingredient
 
 	for ingredient in ingredients_in_range:
 		if first_loop:
@@ -130,11 +130,11 @@ func nearest_ingredient() -> Ingredient:
 			nearest_ingr = ingredient
 		else:
 			var nearest_ingr_distance = abs(nearest_ingr.position - position)
-			var distance = abs(ingredient.position - position)
+			var new_distance = abs(ingredient.position - position)
 
-			if nearest_ingr_distance > distance: # current ingr is the new nearest
+			if nearest_ingr_distance > new_distance: # current ingr is the new nearest
 				nearest_ingr = ingredient
-			elif nearest_ingr_distance < distance: # new nearest doesnt change
+			elif nearest_ingr_distance < new_distance: # nearest doesnt change
 				pass
 	
 	return nearest_ingr

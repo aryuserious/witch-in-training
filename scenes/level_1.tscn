@@ -27,7 +27,7 @@ layer_1/tile_data = PackedInt32Array(1, 1, 2, 65537, 1, 3, 131073, 1, 3, 196609,
 position = Vector2(287, 116)
 
 [node name="CauldronDetection" parent="." instance=ExtResource("5_42agb")]
-position = Vector2(269, 112)
+position = Vector2(267, 106)
 
 [node name="Player" parent="." instance=ExtResource("1_iw33g")]
 position = Vector2(183, 127)

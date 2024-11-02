@@ -1,5 +1,4 @@
 class_name PowerUp
-
 extends Area2D
 
 
