@@ -1,5 +1,4 @@
 class_name Player
-
 extends CharacterBody2D
 
 
@@ -7,12 +6,12 @@ extends CharacterBody2D
 @export var sprite : Sprite2D
 
 enum {FRONT, BACK, LEFT, RIGHT}
-var direction
-var normal_vector : Vector2
-var speed = 60
+var direction : int # it will be FRONT, BACK, LEFT, or RIGHT
+var normal_vector : Vector2i # will be used to find the direction. (0, 0) (1,1) etc
+var speed : int = 60
 
-var ingredients_in_range : Array[Ingredient] # which ingredient is in range
-var current_ingredient : Ingredient # which ingredient is picked up
+var ingredients_in_range : Array[Ingredient] # which ingredients are in range
+var current_ingredient : Ingredient # which ingredient is being held
 signal try_ingredient(ingredient : Ingredient, type : Ingredient.type) # when the player tries to put an ingredient into the cauldron
 signal game_over()
 
@@ -24,12 +23,12 @@ func _ready():
 
 
 func _physics_process(_delta):
-	move()
+	move() # handles mmovement
 
-	if ingredients_in_range.size() > 0 and not current_ingredient and Input.is_action_just_pressed("pickup"):
+	if ingredients_in_range.size() > 0 and current_ingredient == null and Input.is_action_just_pressed("pickup"):
 		pickup_ingredient()
 	
-	# drop ingredient but if the player is range of the cauldron, drop it in the caulron
+	# drop ingredient but if the player is range of the cauldron, try to drop it in the caulron
 	if current_ingredient and Input.is_action_just_pressed("drop"):
 		if cauldron.player_in_range == false:
 			drop_ingredient()
@@ -40,15 +39,14 @@ func _physics_process(_delta):
 		# ingredient looks like its being held by the player
 		current_ingredient.position = $HandPosition.global_position
 		current_ingredient.z_index = -1 if direction == BACK or direction == LEFT else 1
-		
 
 
 func move():
-	var input_vector = Input.get_vector("left", "right", "up", "down")
+	var input_vector : Vector2 = Input.get_vector("left", "right", "up", "down")
 	velocity = input_vector * speed
 	move_and_slide()
 	
-	var is_moving = true
+	var is_moving : bool = true
 	normal_vector = round(input_vector)
 	
 	match normal_vector:
@@ -66,7 +64,7 @@ func move():
 	animate(direction, is_moving) # if we aren't moving, input_vector will be null
 
 
-func animate(dir, moving):
+func animate(dir, moving : bool):
 	match dir:
 		FRONT:
 			if moving:

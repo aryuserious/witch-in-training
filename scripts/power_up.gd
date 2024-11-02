@@ -11,6 +11,6 @@ func _ready():
 
 
 func activate():
+	# start the timer with the time it had left plus the difficulty * 2. They are more useful as time goes on
 	game_time.start(ceil(game_time.time_left) + (Global.difficulty * 2))
 	queue_free()
-	print(game_time)
