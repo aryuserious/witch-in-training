@@ -1,3 +1,22 @@
-[gd_scene format=3 uid="uid://dcgj2mixu0rbn"]
+[gd_scene load_steps=5 format=3 uid="uid://dcgj2mixu0rbn"]
+
+[ext_resource type="Script" path="res://scripts/sound_manager.gd" id="1_4sb0l"]
+[ext_resource type="AudioStream" uid="uid://bxrwl5qcbru4m" path="res://assets/sounds/Witch in Training Song maybe.wav" id="1_u2tes"]
+[ext_resource type="AudioStream" uid="uid://belsaumwypb3a" path="res://assets/sounds/pop_splash.mp3" id="3_ihsi0"]
+[ext_resource type="AudioStream" uid="uid://bwuyq7dlyjqsq" path="res://assets/sounds/footstep.wav" id="4_yw5cy"]
 
 [node name="SoundManager" type="Node"]
+process_mode = 3
+script = ExtResource("1_4sb0l")
+
+[node name="GameMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_u2tes")
+bus = &"Music"
+
+[node name="PotionPlop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ihsi0")
+bus = &"SFX"
+
+[node name="Footstep" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_yw5cy")
+bus = &"SFX"

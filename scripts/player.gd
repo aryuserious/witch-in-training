@@ -12,6 +12,7 @@ var speed : int = 60
 
 var ingredients_in_range : Array[Ingredient] # which ingredients are in range
 var current_ingredient : Ingredient # which ingredient is being held
+
 signal try_ingredient(ingredient : Ingredient, type : Ingredient.type) # when the player tries to put an ingredient into the cauldron
 signal game_over()
 
@@ -105,6 +106,7 @@ func drop_ingredient():
 func _on_cauldron_accepted_ingredient(ingr : Ingredient):
 	ingr.queue_free()
 	current_ingredient = null
+	SoundManager.potion_plo
 
 
 func _on_detection_area_entered(area:Area2D):
