@@ -5,9 +5,13 @@
 [ext_resource type="AudioStream" uid="uid://belsaumwypb3a" path="res://assets/sounds/pop_splash.mp3" id="3_sybf3"]
 [ext_resource type="AudioStream" uid="uid://bwuyq7dlyjqsq" path="res://assets/sounds/footstep.wav" id="4_pjnj0"]
 
-[node name="Sounds" type="Node"]
+[node name="Sounds" type="Node" node_paths=PackedStringArray("game_music", "potion_plop", "footstep", "bubbling")]
 process_mode = 3
 script = ExtResource("1_tcwu6")
+game_music = NodePath("GameMusic")
+potion_plop = NodePath("PotionPlop")
+footstep = NodePath("Footstep")
+bubbling = NodePath("Bubbling")
 
 [node name="GameMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_vfykm")
@@ -20,3 +24,11 @@ bus = &"SFX"
 [node name="Footstep" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_pjnj0")
 bus = &"SFX"
+
+[node name="Bubbling" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_sybf3")
+bus = &"SFX"
+
+[connection signal="finished" from="GameMusic" to="." method="_on_game_music_finished"]
+[connection signal="finished" from="PotionPlop" to="." method="_on_potion_plop_finished"]
+[connection signal="finished" from="Footstep" to="." method="_on_footstep_finished"]

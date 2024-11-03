@@ -4,6 +4,7 @@ extends CharacterBody2D
 
 @export var anim : AnimationPlayer
 @export var sprite : Sprite2D
+@export var sounds : Sounds
 
 enum {FRONT, BACK, LEFT, RIGHT}
 var direction : int # it will be FRONT, BACK, LEFT, or RIGHT
@@ -63,6 +64,10 @@ func move():
 			is_moving = false
 		
 	animate(direction, is_moving) # if we aren't moving, input_vector will be null
+	
+	# play the footstep sound when the players feet touch the ground
+	if is_moving and !sounds.footstep.is_playing() and sprite.position.y == -8:
+		sounds.footstep.play()
 
 
 func animate(dir, moving : bool):
@@ -79,12 +84,12 @@ func animate(dir, moving : bool):
 				anim.play("back_idle")
 		LEFT:
 			if moving:
-				anim.play("left_idle")
+				anim.play("left_walk")
 			else:
 				anim.play("left_idle")
 		RIGHT:
 			if moving:
-				anim.play("right_idle")
+				anim.play("right_walk")
 			else:
 				anim.play("right_idle")
 
@@ -106,7 +111,6 @@ func drop_ingredient():
 func _on_cauldron_accepted_ingredient(ingr : Ingredient):
 	ingr.queue_free()
 	current_ingredient = null
-	SoundManager.potion_plo
 
 
 func _on_detection_area_entered(area:Area2D):
@@ -114,7 +118,6 @@ func _on_detection_area_entered(area:Area2D):
 		ingredients_in_range.append(area) # add the ingredient to the array
 	elif area is PowerUp:
 		area.activate()
-
 
 
 func _on_detection_area_exited(area:Area2D):

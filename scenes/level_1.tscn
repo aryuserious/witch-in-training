@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://2571m6godsxt"]
+[gd_scene load_steps=9 format=3 uid="uid://2571m6godsxt"]
 
 [ext_resource type="Script" path="res://scripts/level_1.gd" id="1_cltiy"]
 [ext_resource type="PackedScene" uid="uid://c5sekepb63mku" path="res://scenes/player.tscn" id="1_iw33g"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bxagv38tvr6qd" path="res://scenes/cauldron_detection.tscn" id="5_42agb"]
 [ext_resource type="PackedScene" uid="uid://c6uq1yph8uswp" path="res://scenes/stats.tscn" id="5_xuif7"]
 [ext_resource type="PackedScene" uid="uid://bxg1rh7mqq515" path="res://scenes/hud.tscn" id="6_mlbeg"]
+[ext_resource type="PackedScene" uid="uid://dcgj2mixu0rbn" path="res://scenes/sounds.tscn" id="8_0tfr0"]
 
 [node name="Level1" type="Node2D"]
 y_sort_enabled = true
@@ -29,8 +30,9 @@ position = Vector2(287, 116)
 [node name="CauldronDetection" parent="." instance=ExtResource("5_42agb")]
 position = Vector2(267, 106)
 
-[node name="Player" parent="." instance=ExtResource("1_iw33g")]
+[node name="Player" parent="." node_paths=PackedStringArray("sounds") instance=ExtResource("1_iw33g")]
 position = Vector2(183, 127)
+sounds = NodePath("../Sounds")
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -65,7 +67,11 @@ autostart = true
 wait_time = 20.0
 one_shot = true
 
+[node name="Sounds" parent="." instance=ExtResource("8_0tfr0")]
+
+[connection signal="accept_ingredient" from="Cauldron" to="." method="_on_cauldron_accept_ingredient"]
 [connection signal="body_entered" from="CauldronDetection" to="Cauldron" method="_on_detection_body_entered"]
 [connection signal="body_exited" from="CauldronDetection" to="Cauldron" method="_on_detection_body_exited"]
 [connection signal="game_over" from="Player" to="HUD" method="_on_player_game_over"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
 [connection signal="timeout" from="GameTime" to="Player" method="_on_game_time_timeout"]

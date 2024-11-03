@@ -42,3 +42,12 @@ func _on_cauldron_new_potion(potion : Cauldron.Potion):
 			var pu = pu_scene.instantiate()
 			add_child(pu)
 		print(num)
+
+
+func _on_start_timer_timeout():
+	$Sounds.game_music.play()
+
+
+func _on_cauldron_accept_ingredient(ingr):
+	# TODO: make plop volume depend on the ingredient
+	$Sounds.potion_plop.play()
