@@ -66,8 +66,8 @@ func move():
 	animate(direction, is_moving) # if we aren't moving, input_vector will be null
 	
 	# play the footstep sound when the players feet touch the ground
-	if is_moving and !sounds.footstep.is_playing() and sprite.position.y == -8:
-		sounds.footstep.play()
+	#if is_moving and !sounds.footstep.is_playing() and sprite.position.y == -8:
+		#sounds.footstep.play()
 
 
 func animate(dir, moving : bool):
@@ -92,6 +92,10 @@ func animate(dir, moving : bool):
 				anim.play("right_walk")
 			else:
 				anim.play("right_idle")
+
+
+func play_footstep():
+	sounds.footstep.play()
 
 
 func pickup_ingredient():

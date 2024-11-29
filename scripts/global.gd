@@ -10,6 +10,9 @@ var spawn_area : Rect2 = Rect2(20, 85, 296, 155)
 func _process(_delta):
 	if score > high_score:
 		high_score = score
+		new_high_score = true
+	else:
+		new_high_score = false
 
 
 func random_spawn() -> Vector2:

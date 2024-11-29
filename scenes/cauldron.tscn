@@ -1,20 +1,114 @@
-[gd_scene load_steps=3 format=3 uid="uid://d34dwh7n46jpu"]
+[gd_scene load_steps=11 format=3 uid="uid://d34dwh7n46jpu"]
 
 [ext_resource type="Script" path="res://scripts/cauldron.gd" id="1_o44t3"]
+[ext_resource type="Texture2D" uid="uid://dj4ygkw1wgugc" path="res://assets/art/Block0.png" id="2_rhioo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jfit8"]
 radius = 1.99999
 height = 8.0
 
+[sub_resource type="Animation" id="Animation_x6ulr"]
+resource_name = "red"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.25, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.211765, 0.329412, 1), Color(1, 0, 0.15, 1), Color(1, 0.211765, 0.329412, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vi0rq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_j8sxe"]
+resource_name = "green"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.25, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.447059, 1, 0.309804, 1), Color(0, 1, 0, 1), Color(0.447059, 1, 0.309804, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_63ww5"]
+_data = {
+"RESET": SubResource("Animation_vi0rq"),
+"green": SubResource("Animation_j8sxe"),
+"red": SubResource("Animation_x6ulr")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xetnx"]
+atlas = ExtResource("2_rhioo")
+region = Rect2(0, 0, 1, 2)
+
+[sub_resource type="Curve" id="Curve_mx0wx"]
+max_value = 2.0
+_data = [Vector2(0, 1.48679), 0.0, 0.0, 0, 0, Vector2(0.730769, 1.24528), 0.0, 0.0, 0, 0, Vector2(0.996503, 0.128302), -1.69596, -1.69596, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_td0aq"]
+offsets = PackedFloat32Array(0, 0.467742, 0.741935, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.818182, 1, 1, 1, 0)
+
 [node name="Cauldron" type="StaticBody2D"]
 collision_layer = 8
 script = ExtResource("1_o44t3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_jfit8")
+
+[node name="AnimPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_63ww5")
+}
+
+[node name="Particles" type="CPUParticles2D" parent="."]
+position = Vector2(0, -10)
+emitting = false
+lifetime = 0.25
+one_shot = true
+explosiveness = 1.0
+texture = SubResource("AtlasTexture_xetnx")
+emission_shape = 5
+emission_points = PackedVector2Array(0, 1, -5, 0, 5, 0)
+emission_normals = PackedVector2Array(0, -3, -0.3, -2, 0.3, -2)
+emission_colors = PackedColorArray()
+particle_flag_align_y = true
+gravity = Vector2(0, 800)
+initial_velocity_min = 35.0
+initial_velocity_max = 40.0
+scale_amount_curve = SubResource("Curve_mx0wx")
+color_ramp = SubResource("Gradient_td0aq")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 position = Vector2(-102, -46)
 color = Color(0.145801, 0.115975, 0.249258, 1)
 polygon = PackedVector2Array(94, 34, 110, 34, 110, 36, 108, 36, 106, 48, 98, 48, 96, 36, 94, 36)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_jfit8")
