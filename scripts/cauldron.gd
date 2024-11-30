@@ -23,7 +23,7 @@ var potions : Array[Potion] = [
 	Potion.new( [
 		Ingredient.type.THORNED_ROSE,
 		Ingredient.type.SALT,
-		Ingredient.type.PEPPERMINT_CANDY ], "Love", Color.HOT_PINK, 0 ),
+		Ingredient.type.PEPPERMINT_CANDY ], "Love", Color.DEEP_PINK, 0 ),
 	Potion.new( [
 		Ingredient.type.PEPPERMINT_CANDY,
 		Ingredient.type.GINGER_ROOT,
@@ -56,6 +56,7 @@ func select_potion():
 	for ingr_type in current_potion.ingredient_types: # add all the potion's ingredient to the needed_ingredient_type array
 		needed_ingredient_types.append(ingr_type)
 	current_ingredients_types.clear() # empties the cauldron
+	$PotionColorSprite.modulate = current_potion.color
 	new_potion.emit(current_potion)
 
 
@@ -81,13 +82,12 @@ func _on_player_try_ingredient(ingredient : Ingredient, type : Ingredient.type):
 		game_time.start(ceil(game_time.time_left) + 25/Global.difficulty ) # start the game time over, with the wait time being the current time + some time
 
 
-func _on_accept_ingredient(ingr):
-	#$AnimPlayer.play("green")
+func _on_accept_ingredient(_ingr):
 	$Particles.color = current_potion.color
 	$Particles.emitting = true
 
 
-func _on_reject_ingredient(ingr):
+func _on_reject_ingredient(_ingr):
 	$AnimPlayer.play("red")
 
 

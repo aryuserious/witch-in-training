@@ -52,6 +52,6 @@ func _on_cauldron_accept_ingredient(_ingr):
 	$Sounds.potion_plop.play()
 
 
-func _on_cauldron_reject_ingredient(ingr):
+func _on_cauldron_reject_ingredient(_ingr):
 	# TODO: Play a sound
 	pass # Replace with function body.

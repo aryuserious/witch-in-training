@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://d34dwh7n46jpu"]
+[gd_scene load_steps=13 format=3 uid="uid://d34dwh7n46jpu"]
 
 [ext_resource type="Script" path="res://scripts/cauldron.gd" id="1_o44t3"]
 [ext_resource type="Texture2D" uid="uid://dj4ygkw1wgugc" path="res://assets/art/Block0.png" id="2_rhioo"]
+[ext_resource type="Texture2D" uid="uid://84xjlfgirlev" path="res://assets/art/cauldron.png" id="3_ssq0i"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jfit8"]
 radius = 1.99999
@@ -63,6 +64,10 @@ _data = {
 "red": SubResource("Animation_x6ulr")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7j0j"]
+atlas = ExtResource("3_ssq0i")
+region = Rect2(32, 32, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_xetnx"]
 atlas = ExtResource("2_rhioo")
 region = Rect2(0, 0, 1, 2)
@@ -90,25 +95,33 @@ libraries = {
 "": SubResource("AnimationLibrary_63ww5")
 }
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = SubResource("AtlasTexture_y7j0j")
+
+[node name="PotionColorSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -9)
+texture = ExtResource("2_rhioo")
+offset = Vector2(0, 0.5)
+region_enabled = true
+region_rect = Rect2(0, 15, 10, 1)
+
 [node name="Particles" type="CPUParticles2D" parent="."]
 position = Vector2(0, -10)
 emitting = false
+amount = 6
 lifetime = 0.25
 one_shot = true
 explosiveness = 1.0
 texture = SubResource("AtlasTexture_xetnx")
 emission_shape = 5
 emission_points = PackedVector2Array(0, 1, -5, 0, 5, 0)
-emission_normals = PackedVector2Array(0, -3, -0.3, -2, 0.3, -2)
+emission_normals = PackedVector2Array(0, -3.5, -0.1, -2.5, 0.1, -2.5)
 emission_colors = PackedColorArray()
 particle_flag_align_y = true
+spread = 10.0
 gravity = Vector2(0, 800)
-initial_velocity_min = 35.0
-initial_velocity_max = 40.0
+initial_velocity_min = 30.0
+initial_velocity_max = 35.0
 scale_amount_curve = SubResource("Curve_mx0wx")
 color_ramp = SubResource("Gradient_td0aq")
-
-[node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2(-102, -46)
-color = Color(0.145801, 0.115975, 0.249258, 1)
-polygon = PackedVector2Array(94, 34, 110, 34, 110, 36, 108, 36, 106, 48, 98, 48, 96, 36, 94, 36)
