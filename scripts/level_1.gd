@@ -6,6 +6,7 @@ var ingr_scene = preload("res://scenes/ingredient.tscn")
 var pu_scene = preload("res://scenes/power_up.tscn")
 @onready var cauldron = $Cauldron as Cauldron
 @onready var start_timer = $StartTimer as Timer
+@onready var camera = $Camera2D as Camera2D
 
 
 func _ready():
